@@ -1,0 +1,13 @@
+.LoginSignUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
+    height: 100vh; /* Full viewport height to center vertically */
+    text-align: center; /* Align text inside the div */
+    border: 1px solid #ccc; /* Optional: for better visibility of the box */
+    padding: 20px; /* Optional: Add padding for spacing inside the box */
+    margin-bottom: 500px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for aesthetics */
+  }
+  
