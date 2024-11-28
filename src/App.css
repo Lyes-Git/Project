@@ -11,3 +11,10 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for aesthetics */
   }
   
+ .loginPageButton{
+    background-color: wheat;
+    margin-left: 10px;
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+  }

@@ -94,9 +94,9 @@ const LoginSignUp = () => {
         />
         <br /><br />
 
-        <button type="submit" value="Submit">Register </button>
+        <button className="loginPageButton" type="submit" value="Submit">Register </button>
 
-        <button type="login" value="Login">Login </button>
+        <button className="loginPageButton" type="login" value="Login">Login </button>
       </form>
 
 
