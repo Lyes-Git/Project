@@ -1,26 +1,107 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const LoginSignUp = () => {
+  const [formData, setFormData] = useState({
+    username: '', email: '', password: '', confirmPassword: '',});
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    //Compare password and confirm pasword
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:3000/api/register', 
+        {method: 'POST',
+        headers: {'Content-Type': 'application/json',},
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
+
   return (
-    <div class="LoginSignUp">
-      <h1>Login/Sign Up</h1><br></br><br></br><br></br>
-      
-      <label htmlFor="fname">Name: </label>
-      <input type="text" id="fname" name="fname" placeholder="John" /><br/>
-    
-      <label htmlFor="fname">Email address: </label>
-      <input type="text" id="emailAddress" name="email" placeholder="John@gmail.com" />
+    <div className="LoginSignUp"> 
+      <h1>Login/Sign Up</h1>
 
-      <br/>
-      <label htmlFor="fname">Password: </label>
-      <input type="text" id="fname" name="password" />
+      {/* NAME================================ */}
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username">Name: </label><br />
+        <input
+          type="text"
+          name="username"
+          placeholder="John"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
+        <br />
 
-      <br/>
-      <label htmlFor="fname">Confirm Password: </label>
-      <input type="text" id="fname" name="confirmPassword" />
+{/* EMAIL================================ */}
+        <label htmlFor="email">Email address: </label><br />
+        <input
+          type="email"
+          name="email"
+          placeholder="John@gmail.com"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <br />
 
-      <br/>
-      <input type="submit" value="Submit" />
+{/* PASSWORD ================================ */}
+        <label htmlFor="password">Password: </label><br />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
+        <br />
+
+        <label htmlFor="confirmPassword">Confirm Password: </label><br />
+        <input
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required
+        />
+        <br /><br />
+
+        <button type="submit" value="Submit">Register </button>
+
+        <button type="login" value="Login">Login </button>
+      </form>
+
+
+
+
     </div>
   );
 };
