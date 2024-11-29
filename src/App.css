@@ -1,13 +1,56 @@
 .LoginSignUp {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Horizontal centering */
-    justify-content: center; /* Vertical centering */
-    height: 100vh; /* Full viewport height to center vertically */
-    text-align: center; /* Align text inside the div */
-    border: 1px solid #ccc; /* Optional: for better visibility of the box */
-    padding: 20px; /* Optional: Add padding for spacing inside the box */
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh; 
+    text-align: center; 
+    border: 1px solid #ccc; 
+    padding: 20px; 
     margin-bottom: 500px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for aesthetics */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   }
+
+
+.language-selector {
+  position:absolute;
+  top: 100px;
+  right: 100px;
+}
+
+.language-selector select {
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+  background-color: rgb(48, 5, 94);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+footer img {
+  width: 30px;
+  height: 30px;
+}
+
+
   

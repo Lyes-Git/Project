@@ -28,10 +28,16 @@
     justify-content: center;
     align-items: center;
   }
+<<<<<<< Updated upstream
 
   /* .footer-login {
     margin-right: 20px;
   } */
+=======
+  .footer-login {
+    margin-right: 20px;
+  }
+>>>>>>> Stashed changes
   
   .footer-login-button {
     text-decoration: none;
