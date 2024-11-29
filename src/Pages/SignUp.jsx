@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginSignUp = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     username: '', email: '', password: '', confirmPassword: '',
   });
@@ -118,4 +118,4 @@ const LoginSignUp = () => {
   );
 };
 
-export default LoginSignUp;
+export default SignUp;

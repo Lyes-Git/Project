@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import shopping_bag from '../assets/shopping_bag.png'
-import cart_icon from '../assets/cart_icon.png'
+import cart_icon from '../assets/cart_icon.png' 
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop")
@@ -24,7 +24,7 @@ const Navbar = () => {
         <hr />
       </ul>
       <div className="nav-login-cart">
-        <Link to='register'><button id="loginSignUpButton">login/signup</button></Link>
+        <Link to='signup'><button id="loginSignUpButton">login/signup</button></Link>
         <Link to='/cart'><img src={cart_icon} alt="" /></Link>
         <div className="nav-cart-count">0</div>
       </div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginSignUp from './Pages/LoginSignUp';
+import SignUp from './Pages/SignUp';
 import LoginPage from './Pages/LoginPage';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
@@ -44,7 +44,7 @@ function App() {
 
           {/* Login/register Page */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<LoginSignUp />} />
+          <Route path="/signup" element={<SignUp />} />
 
         </Routes>
       </BrowserRouter>
