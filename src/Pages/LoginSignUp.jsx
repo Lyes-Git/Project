@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const LoginSignUp = () => {
   const [formData, setFormData] = useState({
-    username: '', email: '', password: '', confirmPassword: '',});
+    username: '', email: '', password: '', confirmPassword: '',
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -22,14 +24,15 @@ const LoginSignUp = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/register', 
-        {method: 'POST',
-        headers: {'Content-Type': 'application/json',},
-        body: JSON.stringify({
-          username: formData.username,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch('http://localhost:3000/api/register',
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', },
+          body: JSON.stringify({
+            username: formData.username,
+            password: formData.password,
+          }),
+        });
 
       if (response.ok) {
         const data = await response.json();
@@ -44,9 +47,12 @@ const LoginSignUp = () => {
     }
   };
 
+  const toLoginPage = async (event) => {
+    console.log("to login page")
+  }
   return (
-    <div className="LoginSignUp"> 
-      <h1>Login/Sign Up</h1>
+    <div className="LoginSignUp">
+      <h1>Registration</h1>
 
       {/* NAME================================ */}
       <form onSubmit={handleSubmit}>
@@ -57,11 +63,10 @@ const LoginSignUp = () => {
           placeholder="John"
           value={formData.username}
           onChange={handleChange}
-          required
-        />
+          required />
         <br />
 
-{/* EMAIL================================ */}
+        {/* EMAIL================================ */}
         <label htmlFor="email">Email address: </label><br />
         <input
           type="email"
@@ -69,19 +74,17 @@ const LoginSignUp = () => {
           placeholder="John@gmail.com"
           value={formData.email}
           onChange={handleChange}
-          required
-        />
+          required />
         <br />
 
-{/* PASSWORD ================================ */}
+        {/* PASSWORD ================================ */}
         <label htmlFor="password">Password: </label><br />
         <input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
-          required
-        />
+          required />
         <br />
 
         <label htmlFor="confirmPassword">Confirm Password: </label><br />
@@ -90,15 +93,24 @@ const LoginSignUp = () => {
           name="confirmPassword"
           value={formData.confirmPassword}
           onChange={handleChange}
-          required
-        />
+          required />
         <br /><br />
 
         <button className="loginPageButton" type="submit" value="Submit">Register </button>
 
-        <button className="loginPageButton" type="login" value="Login">Login </button>
       </form>
 
+
+      <form onSubmit={toLoginPage}>
+        <br /><br />
+        <h2> Have an account already? </h2>
+
+        <br /><br />
+        <Link to='/login'>
+          <button className="loginPageButton" type="login" value="Login">Login </button>
+        </Link>
+
+      </form>
 
 
 

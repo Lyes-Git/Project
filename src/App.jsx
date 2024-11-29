@@ -2,7 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginSignUp from './Pages/LoginSingnUp';
+import LoginSignUp from './Pages/LoginSignUp';
+import LoginPage from './Pages/LoginPage';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Product from './Pages/Product';
@@ -41,8 +42,10 @@ function App() {
           {/* Cart Page */}
           <Route path="/cart" element={<Cart cartItems={cartItems} removeFromCart={removeFromCart} />} />
 
-          {/* Login Page */}
-          <Route path="/login" element={<LoginSignUp />} />
+          {/* Login/register Page */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<LoginSignUp />} />
+
         </Routes>
       </BrowserRouter>
     </div>
