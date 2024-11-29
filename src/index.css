@@ -57,6 +57,13 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+#loginSignUpButton{
+width:200px;
+height:40px;
+}
+#loginSignUpButton:hover{
+  background-color: rgb(93, 224, 233);
+}
 
 @media (prefers-color-scheme: light) {
   :root {
