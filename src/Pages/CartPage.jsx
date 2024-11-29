@@ -11,6 +11,9 @@ const CartPage = ({ cartItems, removeFromCart, decreaseQuantity, increaseQuantit
           <ul className="cart-item-list">
             {cartItems.map((item) => (
               <li key={item.id} className="cart-item">
+                <div className="cart-item-image">
+                  <img src={item.img} alt={item.name} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} />
+                </div>
                 <div className="cart-item-details">
                   <h3>{item.name}</h3>
                   <p>Price: ${item.price.toFixed(2)}</p>
