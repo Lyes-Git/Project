@@ -1,9 +1,17 @@
 import React from 'react'
+//import productData from '../assets/data.js'
+import Item from '../Components/Item/Item.jsx';
 
-const ShopCategory = () => {
+   const ShopCategory=({category}) =>{
+  
+
   return (
-    <div>ShopCategory</div>
-  )
+    <div>
+      <Item category={category}/>
+    </div>
+    
+    
+  );
 }
 
 export default ShopCategory

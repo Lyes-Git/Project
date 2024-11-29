@@ -65,3 +65,18 @@
     margin-right: 10px;
 
 }
+.nav-cart-count{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -35px;
+    margin-left: -21px;
+    border-radius: 11px;
+    font-size: 14px;
+    color: white;
+    background: red;
+
+
+}

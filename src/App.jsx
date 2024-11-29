@@ -9,6 +9,7 @@ import ShopCategory from './Pages/ShopCategory'
 import Product from'./Pages/Product'
 import Cart from './Pages/Cart'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,13 +19,13 @@ function App() {
         <BrowserRouter>
         <Navbar/>
        <Routes>
-        <Route path='/' element={<Shop/>}/>
-        <Route path='/rings' element={<ShopCategory categoty='ring'/>} />
-        <Route path='/neclaces' element={<ShopCategory categoty='neclace'/>}/>
-        <Route path='/earings' element={<ShopCategory categoty='earing'/>}/>
-        <Route path='bracelets/' element={<ShopCategory categoty='bracelet'/>}/>
+        <Route path='/' element={<Shop/> }/>
+        <Route path='/rings' element={<ShopCategory category='rings'/>} />
+        <Route path='/neclaces' element={<ShopCategory category='necklaces'/>}/>
+        <Route path='/earings' element={<ShopCategory category='earrings'/>}/>
+        <Route path='bracelets/' element={<ShopCategory category='bracelets'/>}/>
         <Route path='/product' element={<Product/>}/>
-          <Route path=':productId' element={<Product/>}/>
+        <Route path=':productId' element={<Product/>}/>
        
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSingnUp/>}/>
