@@ -7,7 +7,6 @@ const Shop = () => {
   return (
     <div>
         <Hero/>
-        <ShopCategory/>
     </div>
   )
 }

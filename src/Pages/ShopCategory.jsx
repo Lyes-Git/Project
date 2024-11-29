@@ -1,9 +1,9 @@
 import React from 'react';
 import './ShopCategory.css';
-import productData from '../Components/assets/data'; // Ensure correct path to data.js
+import productData from '../Components/assets/data'; 
 
 const ShopCategory = ({ category, addToCart }) => {
-  const products = productData[category] || []; // Dynamically fetch products for the given category
+  const products = productData[category] || []; // fetch products for the given category
 
   return (
     <div className="shop-category">
