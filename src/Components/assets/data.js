@@ -1,9 +1,10 @@
+
 let productData = {
     
     rings: [
-      { id: 1, name: 'Gold Ring', price: 150, img: '/images/ring1.jpg' },
-      { id: 2, name: 'Silver Ring', price: 100, img: '/images/ring2.jpg' },
-      { id: 3, name: 'Diamond Ring', price: 500, img: '/images/ring3.jpg' },
+      { id: 1, name: 'Gold Ring', price: 150, img: '../assets/Diamond_ring.jpg' },
+      { id: 2, name: 'Silver Ring', price: 100, img: '/images/silver_ring.jpg' },
+      { id: 3, name: 'Diamond Ring', price: 500, img: '/images/gold_ring.jpg' },
     ],
     necklaces: [
       { id: 1, name: 'Pearl Necklace', price: 200, img: '/images/necklace1.jpg' },
