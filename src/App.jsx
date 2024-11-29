@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './Pages/HomePage'; // Import the HomePage component
 import SignUp from './Pages/SignUp';
 import LoginPage from './Pages/LoginPage';
 import Shop from './Pages/Shop';
@@ -16,7 +17,7 @@ function App() {
   const addToCart = (product) => {
     setCartItems((prevCartItems) => {
       const existingProduct = prevCartItems.find((item) => item.id === product.id);
-  
+
       if (existingProduct) {
         // If product exists, update its quantity
         return prevCartItems.map((item) =>
@@ -28,7 +29,6 @@ function App() {
       }
     });
   };
-  
 
   // Function to remove a specific item from the cart
   const removeFromCart = (productId) => {
@@ -68,8 +68,11 @@ function App() {
         {/* Pass cartItems to Navbar for dynamic cart count */}
         <Navbar cartItems={cartItems} />
         <Routes>
-          {/* Home / Shop Page */}
-          <Route path="/" element={<Shop addToCart={addToCart} />} />
+          {/* Home Page */}
+          <Route path="/" element={<HomePage />} />
+
+          {/* Shop Page */}
+          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
 
           {/* Category Pages */}
           <Route
