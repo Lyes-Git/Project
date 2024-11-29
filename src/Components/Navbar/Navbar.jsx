@@ -13,16 +13,20 @@ const Navbar = () => {
             <p>SHOPPERS</p>
         </div>
         <ul className="nav-menu">
-            <li onClick={()=>{setMenu("shop")}}><Link to='/'>Shop</Link> {menu==="shop"?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu("rings")}}><Link to='/rings'>Rings</Link>{menu==="rings"?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu("neclaces")}}><Link to='/neclaces'>Neclaces</Link>{menu==="neclaces"?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu("earings")}}><Link to='/earings'>Earings</Link>{menu==="earings"?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu("bracelets")}}><Link to='/bracelets'>Bracelets</Link>{menu==="bracelets"?<hr/>:<></>}</li>
+        <ul className="nav-menu">
+          <li onClick={() => setMenu("shop")}><Link to='/'>Shop</Link>{menu === "shop" && <hr />}</li>
+          <li onClick={() => setMenu("rings")}><Link to='/rings'>Rings</Link>{menu === "rings" && <hr />}</li>
+          <li onClick={() => setMenu("necklaces")}><Link to='/necklaces'>Necklaces</Link>{menu === "necklaces" && <hr />}</li>
+          <li onClick={() => setMenu("earrings")}><Link to='/earrings'>Earrings</Link>{menu === "earrings" && <hr />}</li>
+          <li onClick={() => setMenu("bracelets")}><Link to='/bracelets'>Bracelets</Link>{menu === "bracelets" && <hr />}</li>
+</ul>
+
             <hr />
         </ul>
         <div className="nav-login-cart">
             <Link to='login'><button id="loginSignUpButton">login/signup</button></Link>
             <Link to='/cart'><img src={cart_icon} alt="" /></Link>
+           <div className="nav-cart-count">0</div>
         </div>
      
     </div>
