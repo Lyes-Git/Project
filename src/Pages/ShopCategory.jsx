@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import productData from '../Components/assets/data';
 import './ShopCategory.css';
-import productData from '../Components/assets/data'; 
 
-const ShopCategory = ({ category, addToCart }) => {
-  const products = productData[category] || []; // fetch products for the given category
+const ShopCategory = ({ category }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    // Fetch and sort products for the given category
+    const sortedProducts = [...(productData[category] || [])].sort(
+      (a, b) => a.price - b.price
+    );
+    setProducts(sortedProducts);
+  }, [category]);
 
   return (
     <div className="shop-category">
@@ -14,7 +22,6 @@ const ShopCategory = ({ category, addToCart }) => {
             <img src={product.img} alt={product.name} />
             <h3>{product.name}</h3>
             <p>${product.price}</p>
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
           </div>
         ))}
       </div>
