@@ -91,6 +91,12 @@
     color: white; /* White text on hover */
     border-color: #333; /* Dark border on hover */
 }
+.nav-cart{
+
+    margin-top: -35px;
+    margin-left: 5px;
+
+}
 
 .nav-cart-count {
     width: 22px;
@@ -98,8 +104,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: 58px;
+    margin-top: -75px;
+    margin-left: 65px;
     border-radius: 11px;
     font-size: 14px;
     color: white;
