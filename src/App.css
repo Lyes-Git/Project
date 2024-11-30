@@ -1,50 +1,50 @@
 .LoginSignUp {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-    justify-content: center; /* Centers content vertically */
-    height: 100vh; /* Full viewport height */
-    text-align: center; /* Aligns text inside the div */
-    border: 1px solid #ccc; /* Subtle border for a clean look */
-    padding: 30px; /* Added padding for better spacing */
-    margin: 0 auto; /* Center the container on the page */
-    max-width: 400px; /* Restrict the width for smaller screens */
-    background-color: #f9f9f9; /* Light background for contrast */
-    border-radius: 10px; /* Smooth corners for aesthetics */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 .loginPageButton {
-    background-color: #f0e68c; /* Subtle wheat background color */
-    margin: 10px 0; /* Consistent vertical spacing */
-    width: 120px; /* Slightly wider button */
-    height: 45px; /* Increased button height for better usability */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Smooth corners */
-    font-size: 16px; /* Adjusted font size for readability */
-    color: #333; /* Text color for contrast */
-    cursor: pointer; /* Pointer cursor for better UX */
-    transition: all 0.3s ease; /* Smooth hover effect */
+  background-color: #f0e68c;
+  margin: 10px 0;
+  width: 120px;
+  height: 45px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .loginPageButton:hover {
-    background-color: #d2b48c; /* Slightly darker on hover */
-    color: white; /* White text on hover */
-    transform: scale(1.05); /* Subtle zoom effect */
+  background-color: #d2b48c;
+  color: white;
+  transform: scale(1.05);
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: Arial, sans-serif; /* Ensure consistent font style */
-    background-color: #fafafa; /* Light background for entire page */
-    color: black;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: black;
 }
 
 #root {
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh; /* Full viewport height */
-    justify-content: flex-start; /* Align content to the top */
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh; /*viewport */
+  justify-content: flex-start;
 }
