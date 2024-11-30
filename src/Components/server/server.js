@@ -60,30 +60,42 @@ app.post('/api/register', async (req, res) => {
 });
 
 // For loggin in
+
 app.get("/api/login", async (req, res) => {
+  try {
+    // Use req.body to get username and password (change GET to POST if you're using req.body)
+    let { username, password } = req.body;
 
-  let username = req.body.username;
-  // console.log("Querying username:", username);
-  // console.log("Query result:", user);
-  // Not case sensitive, for finding user in database.
-  let user = await usersCollection.findOne({
-    username: { $regex: new RegExp(`^${username}$`, 'i') } 
-  });
-  console.log("Query result:", user);
+    if (!username || !password) {
+      return res.status(400).json({ error: "Username and password are required" });
+    }
 
-  if (!user) {
-    return res.status(404).json({ error: "User does not exist" });
+    //Find user by username (case-insensitive), and throw error if user doesn't exist
+    let user = await usersCollection.findOne({
+      username: { $regex: new RegExp(`^${username}$`, "i") },
+    });
+    // console.log("Query result:", user);
+    if (!user) {
+      return res.status(404).json({ error: "User does not exist" });
+    }
+    
+
+    //Compare the plaintext password with the hashed password. First one is plain text, second is hashed.
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (!passwordMatch) {
+      console.log("Wrong password");
+      res.status(401).json({ error: "Invalid username or password" });
+    }else if (password) {
+      console.log("Correct password");
+      res.status(200).json({ message: "Login successful", username: user.username });
+    }
+
+  } catch (error) {
+    console.error("Error in login:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
-
-  // Extract username and password
-  const { username: foundUsername, password } = user;
-
-  console.log("password test: ", password);
-
-  res.status(200).json({ username: foundUsername, password });
-
-
 });
+
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
