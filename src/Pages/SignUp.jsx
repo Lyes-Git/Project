@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: '', email: '', password: '', confirmPassword: '',
+    fullName: '', email: '', password: '', confirmPassword: '',
   });
 
   const handleChange = (event) => {
@@ -29,7 +29,7 @@ const SignUp = () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', },
           body: JSON.stringify({
-            username: formData.username,
+            fullName: formData.fullName,
             password: formData.password,
           }),
         });
@@ -56,12 +56,12 @@ const SignUp = () => {
 
       {/* NAME================================ */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Name: </label><br />
+        <label htmlFor="fullName">Name: </label><br />
         <input
           type="text"
-          name="username"
-          placeholder="John"
-          value={formData.username}
+          name="fullName"
+          placeholder="John Wick"
+          value={formData.fullName}
           onChange={handleChange}
           required />
         <br />
