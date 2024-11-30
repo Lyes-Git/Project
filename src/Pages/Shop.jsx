@@ -1,15 +1,32 @@
-import React from 'react'
-import Hero from '../Components/Hero/Hero'
-import Item from '../Components/Item/Item'
-import ShopCategory from './ShopCategory'
+import React from 'react';
+import './Shop.css';
+import productData from '../Components/assets/data'; // Adjust path as needed
 
-const Shop = () => {
+const Shop = ({ addToCart }) => {
   return (
-    <div>
-        <Hero/>
-        <ShopCategory/>
+    <div className="shop">
+      <h1 className="shop-title">Our Collection</h1>
+      {Object.entries(productData).map(([category, products]) => (
+        <div key={category} className="product-category">
+          <h2 className="category-title">
+            {category.charAt(0).toUpperCase() + category.slice(1)}
+          </h2>
+          <div className="product-grid">
+            {products.map((product) => (
+              <div key={product.id} className="product-card">
+                <img src={product.img} alt={product.name} className="product-image" />
+                <h3>{product.name}</h3>
+                <p>${product.price.toFixed(2)}</p>
+                <button onClick={() => addToCart(product)} className="add-to-cart">
+                  Add to Cart
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;

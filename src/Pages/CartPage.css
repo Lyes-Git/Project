@@ -1,0 +1,105 @@
+/* General styling for the cart page */
+.cart-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.cart-item-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+  gap: 20px; /* Space between grid items */
+  margin: 0;
+}
+
+/* Styling each cart item */
+.cart-item {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+  width: 100%;
+  max-width: 150px; /* Limit the image size */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cart-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.cart-item p {
+  font-size: 16px;
+  color: #555;
+}
+
+.cart-item-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.cart-item-controls button {
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cart-item-controls button:hover {
+  background-color: #0056b3;
+}
+
+/* Cart actions section */
+.cart-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.clear-cart-btn {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.clear-cart-btn:hover {
+  background-color: #e03e3e;
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .cart-item-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-item-list {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}

@@ -5,55 +5,50 @@ import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import cors from 'cors';
 
-
-
 dotenv.config();
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
+app.use(cors()); // Enable CORS before routes
 app.use(express.json());
 
 // MongoDB connection
-// const uri = process.env.MONGO_URI;
-const uri = "mongodb+srv://Admin1:Admin@comp229.ohvxw.mongodb.net/?retryWrites=true&w=majority";
+const uri = process.env.MONGO_URI;
 const client = new MongoClient(uri);
 
-// const client = new MongoClient(uri);
 let usersCollection;
 
 async function connectToMongoDB() {
-    try {
-      await client.connect();
-      console.log('Connected to MongoDB');
-  
-      const db = client.db('Authentication');
-      usersCollection = db.collection('users_collection');
-  
-      // Test insertion of a new user
-      const testUser = { username: 'testuser', password: 'testpassword' };
-      const existingUser = await usersCollection.findOne({ username: testUser.username });
-  
-      if (!existingUser) {
-        const result = await usersCollection.insertOne(testUser);
-        console.log('Test user added:', result.insertedId);
-      } else {
-        console.log('Test user already exists');
-      }
-  
-    } catch (error) {
-      console.error('Failed to connect to MongoDB:', error);
-      process.exit(1); // Exit the process on failure
+  try {
+    await client.connect();
+    console.log('Connected to MongoDB');
+
+    const db = client.db('Authentication');
+    usersCollection = db.collection('users_collection');
+
+    // Test insertion of a new user on start, debugging purpose.
+    //const testUser = { username: 'testuser', password: 'testpassword' };
+
+    //In case username already exists
+    const existingUser = await usersCollection.findOne({ username: testUser.username });
+    if (!existingUser) {
+      const result = await usersCollection.insertOne(testUser);
+      console.log('Test user added:', result.insertedId);
+    } else {
+      console.log('Test user already exists');
     }
+
+  } catch (error) {
+    console.error('Failed to connect to MongoDB:', error);
+    process.exit(1); // Exit the process on failure
   }
-  
+}
 
 connectToMongoDB();
 
-
-
-// API route example
+// POST for registering 
 app.post('/api/register', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -67,6 +62,3 @@ app.post('/api/register', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
-// Enable CORS
-app.use(cors());

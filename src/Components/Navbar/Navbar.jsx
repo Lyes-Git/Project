@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import shopping_bag from '../assets/shopping_bag.png'
 import cart_icon from '../assets/cart_icon.png'
-import profileIcon from '../assets/user_icon.png';
 
-const Navbar = () => {
-    const[menu,setMenu]=useState("shop")
+const Navbar = ({ cartItems = [] }) => {
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <div className='navbar'>
         <div className="nav-logo">
@@ -22,16 +22,11 @@ const Navbar = () => {
             <hr />
         </ul>
         <div className="nav-login-cart">
-        <Link to='login'>
-    <button>
-      <img src={profileIcon} alt="User" />
-      Login
-    </button>
-  </Link>
+            <Link to='login'><button>login</button></Link>
             <Link to='/cart'><img src={cart_icon} alt="" /></Link>
            <div className="nav-cart-count">0</div>
         </div>
-     
+      </div>
     </div>
   );
 };

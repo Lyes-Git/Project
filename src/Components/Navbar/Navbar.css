@@ -1,92 +1,101 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
+    background-color: #f8f8f8; /* Light background for better readability */
+    position: fixed; /* Makes the navbar fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures it stays above other elements */
 }
-.nav-logo{
+
+.nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-right: 100px;
 }
-.nav-logo p{
+
+.nav-logo p {
     color: black;
     font-size: 20px;
     font-weight: 500;
-}
-.nav-logo img{
-    width: 90px;
-    height: 70px;
+    text-transform: uppercase; /* Adds consistent uppercase style */
 }
 
-.nav-menu{
-  display: flex;  
-  align-items: center;
-  list-style: none;
-  gap: 50px;
-  color:gray;
-  font-size: 20px;
-  font-weight: 500;
-  margin-right: 100px;
+.nav-logo img {
+    width: 90px;
+    height: 70px;
+    object-fit: contain; /* Ensures the image fits properly without distortion */
 }
-.nav-menu li{
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    color: gray;
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 100px;
+}
+
+.nav-menu li {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 3px;
     cursor: pointer;
+    transition: color 0.3s ease; /* Smooth hover effect */
 }
-.nav-menu hr{
-    border:none;
+
+.nav-menu li:hover {
+    color: black; /* Highlight text on hover */
+}
+
+.nav-menu hr {
+    border: none;
     width: 80%;
     height: 3px;
     border-radius: 10px;
     background-color: red;
 }
-.nav-login-cart{
-    display:flex;
-    align-items: center;
-    gap: 10px;
+
+.nav-login-cart {
+    display: flex;
+    align-items: center; /* Vertically aligns items */
+    gap: 10px; /* Space between the cart and login/signup buttons */
+    margin-right: 20px; /* Moves the entire section slightly to the left */
 }
-.nav-login-cart button{
+
+.nav-login-cart button {
     width: 157px;
     height: 48px;
     outline: none;
     border: 1px solid gray;
     border-radius: 75px;
-    color: beige;
     font-size: 20px;
     font-weight: 500;
     color: black;
     background: white;
     cursor: pointer;
     margin-right: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 20px;
-    font-weight: 500;
+
 }
-.nav-login-cart button img {
-    width: 24px;
-    height: 24px;
-  }
-  
 .nav-cart-count{
     width: 22px;
     height: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: -21px;
+    margin-top: -75px;
+    margin-left: 65px;
     border-radius: 11px;
     font-size: 14px;
     color: white;
     background: red;
-
-
+    font-weight: bold; /* Emphasizes the count number */
 }
