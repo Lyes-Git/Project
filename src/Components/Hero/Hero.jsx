@@ -20,8 +20,9 @@ const Hero = () => {
       <div className="hero-right">
         <img src={heroImage} alt="Hero Image" />
       </div>
+
     </div>
-  );
-};
+  )
+}
 
 export default Hero;

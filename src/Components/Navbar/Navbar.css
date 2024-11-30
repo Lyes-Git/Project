@@ -83,22 +83,9 @@
     background: white;
     cursor: pointer;
     margin-right: 10px;
-    transition: all 0.3s ease; /* Smooth hover effect */
-}
-
-.nav-login-cart button:hover {
-    background-color: #333; /* Dark background on hover */
-    color: white; /* White text on hover */
-    border-color: #333; /* Dark border on hover */
-}
-.nav-cart{
-
-    margin-top: -35px;
-    margin-left: 5px;
 
 }
-
-.nav-cart-count {
+.nav-cart-count{
     width: 22px;
     height: 22px;
     display: flex;
