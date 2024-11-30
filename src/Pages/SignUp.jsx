@@ -101,16 +101,16 @@ const SignUp = () => {
       </form>
 
 
-      <form onSubmit={toLoginPage}>
-        <br /><br />
-        <h2> Have an account already? </h2>
 
-        <br /><br />
-        <Link to='/login'>
-          <button className="loginPageButton" type="login" value="Login">Login </button>
-        </Link>
+      <br /><br />
+      <h2> Have an account already? </h2>
 
-      </form>
+      <br /><br />
+      <Link to='/login'>
+        <button className="loginPageButton" type="login" value="Login">Login </button>
+      </Link>
+
+
 
 
 
