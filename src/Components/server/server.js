@@ -52,7 +52,7 @@ connectToMongoDB();
 app.post('/api/register', async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
+  if (!email || !password || !confirmPassword) {
     return res.status(400).json({ error: 'Email and password are required' });
   }
 
@@ -62,6 +62,7 @@ app.post('/api/register', async (req, res) => {
     return res.status(400).json({ error: 'Email already in use' });
   }
 
+  //store hashed password
   const hashedPassword = await bcrypt.hash(password, 10);
   await usersCollection.insertOne({ email, password: hashedPassword });
   res.status(201).json({ message: 'User registered successfully' });
@@ -69,7 +70,6 @@ app.post('/api/register', async (req, res) => {
 
 
 // For loggin in
-
 app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -77,6 +77,7 @@ app.post('/api/login', async (req, res) => {
     return res.status(400).json({ error: 'Email and password are required' });
   }
 
+  //not case sensitive for email so it is easier to find
   const user = await usersCollection.findOne({
     email: { $regex: new RegExp(`^${email}$`, 'i') },
   });
@@ -85,11 +86,11 @@ app.post('/api/login', async (req, res) => {
     return res.status(404).json({ error: 'User does not exist' });
   }
 
+  //compare password if it matches
   const passwordMatch = await bcrypt.compare(password, user.password);
   if (!passwordMatch) {
     return res.status(401).json({ error: 'Invalid email or password' });
   }
-
   res.status(200).json({ message: 'Login successful', email: user.email });
 });
 

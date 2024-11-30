@@ -16,6 +16,7 @@ const LoginPage = () => {
     const loginUser = async (event) => {
         event.preventDefault();
 
+        //post to database
         const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -27,6 +28,7 @@ const LoginPage = () => {
 
         const data = await response.json();
 
+        //if password matches or not
         if (response.ok) {
             loginMessage.textContent = data.message;
             loginMessage.style.color = 'green';

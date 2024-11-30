@@ -6,6 +6,7 @@ const SignUp = () => {
     fullName: '', email: '', password: '', confirmPassword: '',
   });
 
+  //updating the states
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -17,11 +18,13 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    //compare password and compare password
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
 
+    //Add new user to database
     const response = await fetch('http://localhost:3000/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
