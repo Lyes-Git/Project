@@ -23,7 +23,7 @@ function App() {
 
   return ( 
        
-      <div>
+      <div className="app-container">
         <BrowserRouter>
         <Navbar/>
        <Routes>
@@ -38,9 +38,9 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSingnUp/>}/>
        </Routes >
-
+       <Footer />
         </BrowserRouter>
-        <Footer />
+      
         
         <div className="App">
       <header className="App-header">

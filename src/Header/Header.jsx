@@ -6,7 +6,9 @@ const Header = () => {
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
+        
     };
+    
 
     return (
         <header>
@@ -14,6 +16,7 @@ const Header = () => {
             <button onClick={() => changeLanguage('en')}>English</button>
             <button onClick={() => changeLanguage('fr')}>Français</button>
         </header>
+        
     );
 };
 

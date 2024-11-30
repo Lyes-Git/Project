@@ -1,9 +1,11 @@
 import React from 'react';
 
+
+
 const LoginSignUp = () => {
   return (
     <div class="LoginSignUp">
-      <h1>Login/Sign Up</h1><br></br><br></br><br></br>
+      <h1>LOGIN</h1><br></br><br></br><br></br>
       
       <label htmlFor="fname">Name: </label>
       <input type="text" id="fname" name="fname" placeholder="John" /><br/>

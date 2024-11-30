@@ -11,12 +11,27 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-      <div className="footer-bag">
+      <div className="footer-left">
           <img src={bag} alt="Shopping Bag" />
-          <p>SHOPPERS</p>
+         
+          <h4>SHOPPERS</h4>
+          <p>© 2020 - 2023</p>
+          <p>Privacy - Terms</p>
         </div>
 
+        {/* <div className="footer-middle">
+          <div className="footer-resources">
+            <h4>Resources</h4>
+            <ul>
+              <li>Product</li>
+              <li>Feature</li>
+              <li>Company</li>
+            </ul>
+            </div>
+          </div> */}
+
         <div className="footer-icons">
+          <p>Folllow us:</p>
           <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
             <img src={insta} alt="Instagram" />
             <p>INSTAGRAM</p>
@@ -35,7 +50,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className="footer-login">
+        <div className="footer-right">
           <a href="/login" className="footer-login-button">
             Login
           </a>
