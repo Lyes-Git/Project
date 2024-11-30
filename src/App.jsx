@@ -1,54 +1,51 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import SignUp from './Pages/SignUp';
-import LoginPage from './Pages/LoginPage';
+import HomePage from './Pages/HomePage';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
 import Product from './Pages/Product';
 import Cart from './Pages/CartPage';
+import SignUp from './Pages/SignUp';
+import LoginPage from './Pages/LoginPage';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  // Function to add items to the cart
+  // Add item to cart
   const addToCart = (product) => {
     setCartItems((prevCartItems) => {
       const existingProduct = prevCartItems.find((item) => item.id === product.id);
-  
       if (existingProduct) {
-        // If product exists, update its quantity
         return prevCartItems.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       } else {
-        // If product does not exist, add it to the cart
         return [...prevCartItems, { ...product, quantity: 1 }];
       }
     });
   };
-  
 
-  // Function to remove a specific item from the cart
+  // Remove item from cart
   const removeFromCart = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems.filter((item) => item.id !== productId)
     );
   };
 
-  // Function to decrease the quantity of a specific item
+  // Decrease item quantity
   const decreaseQuantity = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems
         .map((item) =>
           item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
         )
-        .filter((item) => item.quantity > 0) // Remove items with quantity 0
+        .filter((item) => item.quantity > 0)
     );
   };
 
-  // Function to increase the quantity of a specific item
+  // Increase item quantity
   const increaseQuantity = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
@@ -57,21 +54,31 @@ function App() {
     );
   };
 
-  // Function to clear all items from the cart
+  // Clear all items from cart
   const clearCart = () => {
     setCartItems([]);
   };
 
-  return (
-    <div>
-      <BrowserRouter>
-        {/* Pass cartItems to Navbar for dynamic cart count */}
-        <Navbar cartItems={cartItems} />
-        <Routes>
-          {/* Home / Shop Page */}
-          <Route path="/" element={<Shop addToCart={addToCart} />} />
+  // Dynamically adjust padding for content based on navbar height
+  useEffect(() => {
+    const navbar = document.querySelector('.navbar');
+    const content = document.querySelector('.content');
 
-          {/* Category Pages */}
+    if (navbar && content) {
+      content.style.paddingTop = `${navbar.offsetHeight}px`;
+    }
+  }, []);
+
+  return (
+    <BrowserRouter>
+      {/* Fixed Navbar */}
+      <Navbar cartItems={cartItems} />
+
+      {/* Main Content */}
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<Shop addToCart={addToCart} />} />
           <Route
             path="/rings"
             element={<ShopCategory category="rings" addToCart={addToCart} />}
@@ -88,14 +95,10 @@ function App() {
             path="/bracelets"
             element={<ShopCategory category="bracelets" addToCart={addToCart} />}
           />
-
-          {/* Product Details Page */}
           <Route
             path="/product/:category/:productId"
             element={<Product addToCart={addToCart} />}
           />
-
-          {/* Cart Page */}
           <Route
             path="/cart"
             element={
@@ -108,13 +111,11 @@ function App() {
               />
             }
           />
-
-          {/* Login/Register Pages */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 
