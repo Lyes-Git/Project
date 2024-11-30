@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const LoginPage = () => {
     const [formData, setFormData] = useState({ email: '', password: '', });
 
+    //updating the states
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData({
@@ -11,21 +12,15 @@ const LoginPage = () => {
             [name]: value,
         });
     };
-
+    //Function to handle form submission for login
     const loginUser = async (event) => {
         event.preventDefault();
-        console.log("Attempting Logging in")
-        let loginMessage = document.getElementById("loginMessage")
 
-
-        //code for success and failure, change later
         const response = await fetch('http://localhost:3000/api/login', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                username: formData.email, 
+                email: formData.email,
                 password: formData.password,
             }),
         });
@@ -33,17 +28,14 @@ const LoginPage = () => {
         const data = await response.json();
 
         if (response.ok) {
-            // Successful login
             loginMessage.textContent = data.message;
-            loginMessage.style.color = "green";
-            console.log("Login Successful:", data);
+            loginMessage.style.color = 'green';
         } else {
-            // Handle login failure
             loginMessage.textContent = data.error;
-            loginMessage.style.color = "red";
-            console.error("Login Failed:", data);
+            loginMessage.style.color = 'red';
         }
-    }
+    };
+
 
     return (
         <div className="LoginSignUp">

@@ -11,3 +11,7 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for aesthetics */
   }
   
+  .LoginSignUp input {
+    color: #000; /* Text color - change to black */
+    background-color: #fff; /* Background color of input */
+  }

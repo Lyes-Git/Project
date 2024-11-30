@@ -50,51 +50,49 @@ connectToMongoDB();
 
 // POST for registering 
 app.post('/api/register', async (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password) {
-    return res.status(400).json({ error: 'Username and password are required' });
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
   }
+
+  // Check if user already exists
+  const existingUser = await usersCollection.findOne({ email });
+  if (existingUser) {
+    return res.status(400).json({ error: 'Email already in use' });
+  }
+
   const hashedPassword = await bcrypt.hash(password, 10);
-  await usersCollection.insertOne({ username, password: hashedPassword });
+  await usersCollection.insertOne({ email, password: hashedPassword });
   res.status(201).json({ message: 'User registered successfully' });
 });
 
+
 // For loggin in
 
-app.get("/api/login", async (req, res) => {
-  try {
-    // Use req.body to get username and password (change GET to POST if you're using req.body)
-    let { username, password } = req.body;
+app.post('/api/login', async (req, res) => {
+  const { email, password } = req.body;
 
-    if (!username || !password) {
-      return res.status(400).json({ error: "Username and password are required" });
-    }
-
-    //Find user by username (case-insensitive), and throw error if user doesn't exist
-    let user = await usersCollection.findOne({
-      username: { $regex: new RegExp(`^${username}$`, "i") },
-    });
-    // console.log("Query result:", user);
-    if (!user) {
-      return res.status(404).json({ error: "User does not exist" });
-    }
-    
-
-    //Compare the plaintext password with the hashed password. First one is plain text, second is hashed.
-    const passwordMatch = await bcrypt.compare(password, user.password);
-    if (!passwordMatch) {
-      console.log("Wrong password");
-      res.status(401).json({ error: "Invalid username or password" });
-    }else if (password) {
-      console.log("Correct password");
-      res.status(200).json({ message: "Login successful", username: user.username });
-    }
-
-  } catch (error) {
-    console.error("Error in login:", error);
-    res.status(500).json({ error: "Internal server error" });
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email and password are required' });
   }
+
+  const user = await usersCollection.findOne({
+    email: { $regex: new RegExp(`^${email}$`, 'i') },
+  });
+
+  if (!user) {
+    return res.status(404).json({ error: 'User does not exist' });
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.password);
+  if (!passwordMatch) {
+    return res.status(401).json({ error: 'Invalid email or password' });
+  }
+
+  res.status(200).json({ message: 'Login successful', email: user.email });
 });
+
 
 
 app.listen(PORT, () => {
