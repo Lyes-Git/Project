@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
-import LoginSingnUp from './Pages/LoginSingnUp'
+import SignUp from './Pages/SignUp'
 
 import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
@@ -29,7 +29,7 @@ function App() {
         <Route path=':productId' element={<Product/>}/>
        
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/login' element={<LoginSingnUp/>}/>
+          <Route path='/signup' element={<SignUp/>}/>
        </Routes >
 
         </BrowserRouter>

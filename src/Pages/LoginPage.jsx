@@ -19,12 +19,29 @@ const LoginPage = () => {
 
 
         //code for success and failure, change later
-        if (formData.password === "123") {
-            loginMessage.textContent = "SUCCESS";
+        const response = await fetch('http://localhost:3000/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: formData.email, 
+                password: formData.password,
+            }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            // Successful login
+            loginMessage.textContent = data.message;
             loginMessage.style.color = "green";
+            console.log("Login Successful:", data);
         } else {
-            loginMessage.textContent = "TRY AGAIN";
+            // Handle login failure
+            loginMessage.textContent = data.error;
             loginMessage.style.color = "red";
+            console.error("Login Failed:", data);
         }
     }
 
