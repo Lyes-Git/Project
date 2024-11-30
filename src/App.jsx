@@ -59,16 +59,6 @@ function App() {
     setCartItems([]);
   };
 
-  // Dynamically adjust padding for content based on navbar height
-  useEffect(() => {
-    const navbar = document.querySelector('.navbar');
-    const content = document.querySelector('.content');
-
-    if (navbar && content) {
-      content.style.paddingTop = `${navbar.offsetHeight}px`;
-    }
-  }, []);
-
   return (
     <BrowserRouter>
       {/* Fixed Navbar */}

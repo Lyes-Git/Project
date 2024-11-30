@@ -45,6 +45,9 @@ html, body {
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 80vh; /*viewport */
+  min-height: 100vh; /*viewport */
   justify-content: flex-start;
+}
+.content {
+  padding-top:px; /* Match the actual height of the navbar */
 }
