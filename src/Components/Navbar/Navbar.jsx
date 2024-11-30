@@ -27,7 +27,7 @@ const Navbar = ({ cartItems = [] }) => {
            <div className="nav-cart-count">0</div>
         </div>
       </div>
-    </div>
+    //</div>
   );
 };
 

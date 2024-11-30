@@ -7,7 +7,8 @@ import LoginSingnUp from './Pages/LoginSingnUp'
 import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
 import Product from'./Pages/Product'
-import Cart from './Pages/Cart'
+import Cart from './Pages/CartPage'
+
 
 
 function App() {
