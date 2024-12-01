@@ -50,9 +50,9 @@ connectToMongoDB();
 
 // POST for registering 
 app.post('/api/register', async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, confirmPassword } = req.body;
 
-  if (!email || !password || !confirmPassword) {
+  if (!email || !password || !confirmPassword ) {
     return res.status(400).json({ error: 'Email and password are required' });
   }
 
