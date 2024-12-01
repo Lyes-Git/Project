@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
     const [formData, setFormData] = useState({ email: '', password: '', });
+    const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
 
     //updating the states
     const handleChange = (event) => {
@@ -18,7 +19,7 @@ const LoginPage = () => {
         // const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/login`;
 
         //post to database
-        const response = await fetch('https://shoppers-group-project.onrender.com/api/login', {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

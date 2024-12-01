@@ -6,6 +6,7 @@ const SignUp = () => {
     fullName: '', email: '', password: '', confirmPassword: '',
   });
 
+  const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
   //updating the states
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -17,7 +18,7 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/register`;
+     
 
     //compare password and compare password
     if (formData.password !== formData.confirmPassword) {
@@ -26,7 +27,7 @@ const SignUp = () => {
     }
 
     //Add new user to database
-    const response = await fetch('https://shoppers-group-project.onrender.com/api/register', {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
