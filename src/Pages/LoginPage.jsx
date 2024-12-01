@@ -15,10 +15,10 @@ const LoginPage = () => {
     //Function to handle form submission for login
     const loginUser = async (event) => {
         event.preventDefault();
-        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/login`;
+        // const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/login`;
 
         //post to database
-        const response = await fetch(apiUrl, {
+        const response = await fetch('https://shoppers-group-project.onrender.com/api/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
