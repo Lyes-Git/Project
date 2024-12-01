@@ -17,6 +17,7 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/register`;
 
     //compare password and compare password
     if (formData.password !== formData.confirmPassword) {
@@ -25,7 +26,7 @@ const SignUp = () => {
     }
 
     //Add new user to database
-    const response = await fetch('http://localhost:3000/api/register', {
+    const response = await fetch(apiUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

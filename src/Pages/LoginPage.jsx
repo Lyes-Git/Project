@@ -15,9 +15,10 @@ const LoginPage = () => {
     //Function to handle form submission for login
     const loginUser = async (event) => {
         event.preventDefault();
+        const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/login`;
 
         //post to database
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch(apiUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
