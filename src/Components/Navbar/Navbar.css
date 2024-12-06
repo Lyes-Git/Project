@@ -69,7 +69,17 @@
     align-items: center; /* Vertically aligns items */
     gap: 10px; /* Space between the cart and login/signup buttons */
     margin-right: 20px; /* Moves the entire section slightly to the left */
+    /* width: 10px; */
 }
+
+.nav-login-cart>button {
+    display: flex;
+    align-items: center; /* Vertically aligns items */
+    gap: 10px; /* Space between the cart and login/signup buttons */
+    margin-right: 20px; /* Moves the entire section slightly to the left */
+     width: 10px; 
+}
+
 
 .nav-login-cart button {
     width: 157px;

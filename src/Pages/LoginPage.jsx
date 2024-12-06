@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginPage = () => {
+const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
-    const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
+    const [errorMessage, setErrorMessage] = useState('');
+    // const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
+    // apiurl needs to be changed once I deploy to server again
+    const apiUrl = "http://localhost:3000/api/login"
+    // console.log(apiUrl)
 
     //updating the states
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+        setFormData({ ...formData, [name]: value, });
     };
     //Function to handle form submission for login
     const loginUser = async (event) => {
         event.preventDefault();
-        // const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/login`;
 
         //post to database
         const response = await fetch(apiUrl, {
@@ -32,11 +32,10 @@ const LoginPage = () => {
 
         //if password matches or not
         if (response.ok) {
-            loginMessage.textContent = data.message;
-            loginMessage.style.color = 'green';
+            onLogin(data.fullName); // Pass the full name to App.jsx
+            console.log(data.fullName);
         } else {
-            loginMessage.textContent = data.error;
-            loginMessage.style.color = 'red';
+            alert(data.error);
         }
     };
 

@@ -6,7 +6,12 @@ const SignUp = () => {
     fullName: '', email: '', password: '', confirmPassword: '',
   });
 
-  const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
+  // const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
+  // apiurl needs to be changed once I deploy to server again
+  const apiUrl = "http://localhost:3000/api/register"
+  console.log(apiUrl)
+
+
   //updating the states
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -31,11 +36,13 @@ const SignUp = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        fullName: formData.fullName, // Include fullName in the request
         email: formData.email,
         password: formData.password,
         confirmPassword: formData.confirmPassword,
       }),
     });
+    
 
     const data = await response.json();
 

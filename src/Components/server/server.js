@@ -40,10 +40,10 @@ connectToMongoDB();
 
 // POST for registering 
 app.post('/api/register', async (req, res) => {
-  const { email, password, confirmPassword } = req.body;
+  const { fullName, email, password, confirmPassword } = req.body;
 
-  if (!email || !password || !confirmPassword) {
-    return res.status(400).json({ error: 'Email and password are required' });
+  if (!fullName || !email || !password || !confirmPassword) {
+    return res.status(400).json({ error: 'Full name, email, and password are required' });
   }
 
   // Check if user already exists
@@ -54,7 +54,7 @@ app.post('/api/register', async (req, res) => {
 
   // Store hashed password
   const hashedPassword = await bcrypt.hash(password, 10);
-  await usersCollection.insertOne({ email, password: hashedPassword });
+  await usersCollection.insertOne({ fullName, email, password: hashedPassword });
   res.status(201).json({ message: 'User registered successfully' });
 });
 
@@ -80,7 +80,11 @@ app.post('/api/login', async (req, res) => {
   if (!passwordMatch) {
     return res.status(401).json({ error: 'Invalid email or password' });
   }
-  res.status(200).json({ message: 'Login successful', email: user.email });
+
+  // Return the user's full name and email
+  res.status(200).json({ message: 'Login successful', fullName: user.fullName, email: user.email });
+  console.log(user); // Add this line for debugging
+
 });
 
 // Serve React static files in production

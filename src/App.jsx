@@ -13,13 +13,18 @@ import Cart from './Pages/CartPage'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userName, setUserName] = useState(null);
+
+  // Function to update username after login
+  const handleLogin = (name) => {
+    setUserName(name);
+  };
 
   return (
 
     <div>
       <BrowserRouter>
-        <Navbar />
+      <Navbar userName={userName} /> {/* Pass userName to Navbar */}
         <Routes>
           <Route path='/' element={<Shop />} />
           <Route path='/rings' element={<ShopCategory category='rings' />} />
@@ -32,7 +37,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           {/* <Route path='/login' element={<Cart />} /> */}
           <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
         </Routes >
 
       </BrowserRouter>

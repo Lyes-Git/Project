@@ -4,8 +4,19 @@ import './Navbar.css'
 import shopping_bag from '../assets/shopping_bag.png'
 import cart_icon from '../assets/cart_icon.png'
 
-const Navbar = ({ cartItems = [] }) => {
+const Navbar = ({ cartItems = [], userName }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  let loginButton; // Define the button variable
+  if (userName) {
+    loginButton = <span className="welcome-message">Welcome {userName}</span>;
+  } else {
+    loginButton = (
+      <Link to="/signup">
+        <button className="signupButton">signup/login</button>
+      </Link>
+    );
+  }
 
   return (
     <div className='navbar'>
@@ -22,12 +33,13 @@ const Navbar = ({ cartItems = [] }) => {
             <hr />
         </ul>
         <div className="nav-login-cart">
-            <Link to='/signup'><button>login</button></Link>
-            <Link to='/cart'><img src={cart_icon} alt="" /></Link>
-           <div className="nav-cart-count">0</div>
-        </div>
+        {loginButton} {/* Render the login button based on the condition */}
+        <Link to="/cart">
+          <img src={cart_icon} alt="cart" />
+        </Link>
+        <div className="nav-cart-count">{totalItems}</div>
       </div>
-    //</div>
+    </div>
   );
 };
 
