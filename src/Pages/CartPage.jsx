@@ -1,36 +1,71 @@
 import React from 'react';
+import { useCart } from '../Context/CartContext';
+import './CartPage.css';
 
-const CartPage = ({ cartItems, removeFromCart, decreaseQuantity, increaseQuantity, clearCart }) => {
+const CartPage = () => {
+  const { cartItems, removeFromCart ,updateQuantity,clearCart} = useCart();
+
+  const totalPrice=cartItems.reduce(
+    (total,item)=>total +item.price * item.quantity,
+    0
+  );
+
   return (
     <div className="cart-page">
       <h1>Your Cart</h1>
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <div>
-          <ul className="cart-item-list">
-            {cartItems.map((item) => (
-              <li key={item.id} className="cart-item">
-                <div className="cart-item-image">
-                  <img src={item.img} alt={item.name} style={{ width: '100px', height: '100px', objectFit: 'cover', borderRadius: '8px' }} />
+        <div className="cart-items">
+          {cartItems.map((item) => (
+            <div key={item.id} className="cart-item">
+              <img src={item.img} alt={item.name} className="cart-item-image" />
+              <div>
+                <h3>{item.name}</h3>
+                <p>${item.price.toFixed(2)}</p>
+                <p>
+                  Total:${(item.price * item.quantity).toFixed(2)}
+                </p>
+                <div className="quantity-control">
+                  <button
+                  onClick={()=>updateQuantity(item.id,item.quantity -1 )
+
+                  }
+                  disabled={item.quantity<=1}
+                  >
+                  -
+                  </button>
+                  <span>{item.quantity}</span>
+                  <button
+                  onClick={()=>updateQuantity(item.id,item.quantity +1)}
+                  >
+                  +
+                  </button>
+        
                 </div>
-                <div className="cart-item-details">
-                  <h3>{item.name}</h3>
-                  <p>Price: ${item.price.toFixed(2)}</p>
-                  <p>Quantity: {item.quantity}</p>
+                <p>Quantity: {item.quantity}</p>
+                <button onClick={() => removeFromCart(item.id)}>
+                  Remove
+                </button>
+               
+              </div>
+            </div>
+          
+          ))}
+          <div className="cart-total">
+                  <h2>
+                    Total Price:${totalPrice.toFixed(2)}
+                  </h2>
                 </div>
-                <div className="cart-item-controls">
-                  <button onClick={() => decreaseQuantity(item.id)}>-</button>
-                  <button onClick={() => increaseQuantity(item.id)}>+</button>
-                  <button onClick={() => removeFromCart(item.id)}>Remove</button>
+                <div className="clear-cart-btn">
+                  <button onClick={()=> clearCart()}>
+                    Clear
+                  </button>
                 </div>
-              </li>
-            ))}
-          </ul>
-          <div className="cart-actions">
-            <button onClick={clearCart} className="clear-cart-btn">Clear Cart</button>
-          </div>
+
         </div>
+       
+       
       )}
     </div>
   );

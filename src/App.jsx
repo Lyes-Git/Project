@@ -9,6 +9,9 @@ import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
 import Product from './Pages/Product'
 import Cart from './Pages/CartPage'
+import CartPage from './Pages/CartPage'
+
+
 
 
 
@@ -29,7 +32,7 @@ function App() {
           <Route path='/product' element={<Product />} />
           <Route path=':productId' element={<Product />} />
 
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<CartPage />} />
           {/* <Route path='/login' element={<Cart />} /> */}
           <Route path='/signup' element={<SignUp />} />
           <Route path='/login' element={<LoginPage />} />

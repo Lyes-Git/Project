@@ -83,7 +83,12 @@
     background: white;
     cursor: pointer;
     margin-right: 10px;
+}
 
+.nav-login-cart img{
+    align-items: center;
+    margin-left:-1px ;
+    margin-top: -35px;
 }
 .nav-cart-count{
     width: 22px;
@@ -91,8 +96,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -60px;
-    margin-left: -28px;
+    margin-top: -75px;
+    margin-left: 60px;
     border-radius: 11px;
     font-size: 14px;
     color: white;
