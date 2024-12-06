@@ -103,9 +103,9 @@ const SignUp = () => {
         <button className="loginPageButton" type="submit">Register</button>
       </form>
 
-      <br /><br />
+      <br />
       <h2> Have an account already? </h2>
-      <br /><br />
+      <br />
       <Link to='/login'>
         <button className="loginPageButton">Login</button>
       </Link>

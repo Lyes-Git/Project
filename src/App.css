@@ -2,8 +2,11 @@
     display: flex;
     flex-direction: column;
     align-items: center; /* Horizontal centering */
-    justify-content: center; /* Vertical centering */
-    height: 100vh; /* Full viewport height to center vertically */
+    margin-top: 100px;
+    /* justify-content: center;  */
+    /* height: 100vh;  */
+    height: auto;
+    width: 500px;
     text-align: center; /* Align text inside the div */
     border: 1px solid #ccc; /* Optional: for better visibility of the box */
     padding: 20px; /* Optional: Add padding for spacing inside the box */

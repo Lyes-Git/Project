@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
@@ -8,6 +9,7 @@ const LoginPage = ({ onLogin }) => {
     // apiurl needs to be changed once I deploy to server again
     const apiUrl = "http://localhost:3000/api/login"
     // console.log(apiUrl)
+    const navigate = useNavigate();
 
     //updating the states
     const handleChange = (event) => {
@@ -31,9 +33,12 @@ const LoginPage = ({ onLogin }) => {
         const data = await response.json();
 
         //if password matches or not
+        //When it matches it will redirect you to dashboard page
         if (response.ok) {
             onLogin(data.fullName); // Pass the full name to App.jsx
             console.log(data.fullName);
+            navigate('/dashboard');
+
         } else {
             alert(data.error);
         }
@@ -44,13 +49,11 @@ const LoginPage = ({ onLogin }) => {
         <div className="LoginSignUp">
             <form onSubmit={loginUser}>
                 <h1>Login </h1>
-                <br />
-                <br />
 
-                <div>
+                {/* <div>
                     <h2 id="loginMessage"></h2>
-                </div>
-                <br />
+                </div> */}
+                {/* <br /> */}
                 <br />
 
                 {/* EMAIL================================ */}
@@ -77,6 +80,14 @@ const LoginPage = ({ onLogin }) => {
                 <button className="loginPageButton" type="submit">Login</button>
 
             </form>
+
+            <h2> Don't have an account? </h2>
+            <br />
+
+            <Link to='/signup'>
+                <button className="loginPageButton" type="submit">Register</button>
+            </Link>
+
             <div>
             </div>
         </div>

@@ -1,19 +1,25 @@
+import { useState, useEffect  } from 'react'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import shopping_bag from '../assets/shopping_bag.png'
 import cart_icon from '../assets/cart_icon.png'
 
-const Navbar = ({ cartItems = [], userName }) => {
+const Navbar = ({ cartItems = [], userName, onLogout }) => {
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   let loginButton; // Define the button variable
   if (userName) {
-    // loginButton = <span className="welcome-message">Welcome {userName}</span>;
     loginButton = (
-      <Link to="/Dashboard">
-        <button className="Dashboard">Welcome {userName}</button>
-      </Link>
+      <div>
+        <Link to="/dashboard">
+          {/* <button className="dashboard">Welcome {userName}</button> */}
+          <button className="dashboard">Dashboard</button>
+        </Link>
+        <button className="logoutButton" onClick={onLogout}>
+          Logout
+        </button>
+      </div>
     );
   } else {
     loginButton = (
