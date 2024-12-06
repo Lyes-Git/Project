@@ -9,6 +9,7 @@ import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
 import Product from './Pages/Product'
 import Cart from './Pages/CartPage'
+import Dashboard from './Pages/Dashboard'
 
 
 
@@ -38,6 +39,7 @@ function App() {
           {/* <Route path='/login' element={<Cart />} /> */}
           <Route path='/signup' element={<SignUp />} />
           <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+          <Route path="/Dashboard" element={<Dashboard/>} />
         </Routes >
 
       </BrowserRouter>

@@ -9,7 +9,12 @@ const Navbar = ({ cartItems = [], userName }) => {
 
   let loginButton; // Define the button variable
   if (userName) {
-    loginButton = <span className="welcome-message">Welcome {userName}</span>;
+    // loginButton = <span className="welcome-message">Welcome {userName}</span>;
+    loginButton = (
+      <Link to="/Dashboard">
+        <button className="Dashboard">Welcome {userName}</button>
+      </Link>
+    );
   } else {
     loginButton = (
       <Link to="/signup">
@@ -20,19 +25,19 @@ const Navbar = ({ cartItems = [], userName }) => {
 
   return (
     <div className='navbar'>
-        <div className="nav-logo">
-            <img src={shopping_bag} alt="" />
-            <p>SHOPPERS</p>
-        </div>
-        <ul className="nav-menu">
-            <li onClick={()=>{setMenu("shop")}}><Link to='/'>Shop</Link> </li>
-            <li onClick={()=>{setMenu("rings")}}><Link to='/rings'>Rings</Link></li>
-            <li onClick={()=>{setMenu("neclaces")}}><Link to='/neclaces'>Neclaces</Link></li>
-            <li onClick={()=>{setMenu("earings")}}><Link to='/earings'>Earings</Link></li>
-            <li onClick={()=>{setMenu("bracelets")}}><Link to='/bracelets'>Bracelets</Link></li>
-            <hr />
-        </ul>
-        <div className="nav-login-cart">
+      <div className="nav-logo">
+        <img src={shopping_bag} alt="" />
+        <p>SHOPPERS</p>
+      </div>
+      <ul className="nav-menu">
+        <li onClick={() => { setMenu("shop") }}><Link to='/'>Shop</Link> </li>
+        <li onClick={() => { setMenu("rings") }}><Link to='/rings'>Rings</Link></li>
+        <li onClick={() => { setMenu("neclaces") }}><Link to='/neclaces'>Necklaces</Link></li>
+        <li onClick={() => { setMenu("earings") }}><Link to='/earings'>Earrings</Link></li>
+        <li onClick={() => { setMenu("bracelets") }}><Link to='/bracelets'>Bracelets</Link></li>
+        <hr />
+      </ul>
+      <div className="nav-login-cart">
         {loginButton} {/* Render the login button based on the condition */}
         <Link to="/cart">
           <img src={cart_icon} alt="cart" />
