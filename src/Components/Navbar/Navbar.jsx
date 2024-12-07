@@ -1,12 +1,15 @@
-import { useState, useEffect  } from 'react'
+import { useState, useEffect, useContext  } from 'react'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'
 import shopping_bag from '../assets/shopping_bag.png'
 import cart_icon from '../assets/cart_icon.png'
+import { useCart } from '../../Context/CartContext';
 
-const Navbar = ({ cartItems = [], userName, onLogout }) => {
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+const Navbar = ({ userName, onLogout }) => {
+  const{cartItems} = useCart();
+  const totalItems=cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   let loginButton; // Define the button variable
   if (userName) {
@@ -48,7 +51,9 @@ const Navbar = ({ cartItems = [], userName, onLogout }) => {
         <Link to="/cart">
           <img src={cart_icon} alt="cart" />
         </Link>
-        <div className="nav-cart-count">{totalItems}</div>
+        <div className="nav-cart-count">
+          {totalItems}
+          </div>
       </div>
     </div>
   );

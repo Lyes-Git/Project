@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import SignUp from './Pages/SignUp'
 import LoginPage from './Pages/LoginPage'
+import { CartProvider } from './Context/CartContext';
 
 import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
@@ -41,6 +42,7 @@ function App() {
   return (
 
     <div>
+      <CartProvider>
       <BrowserRouter>
       <Navbar userName={userName} onLogout={handleLogout} /> {/* Pass onLogout to Navbar */}
         <Routes>
@@ -60,6 +62,7 @@ function App() {
         </Routes >
 
       </BrowserRouter>
+      </CartProvider>
 
 
     </div>

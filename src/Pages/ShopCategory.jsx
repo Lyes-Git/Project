@@ -1,8 +1,10 @@
 import React from 'react';
 import './ShopCategory.css';
 import productData from '../Components/assets/data.js'; 
+import { useCart } from '../Context/CartContext.jsx';
 
-const ShopCategory = ({ category, addToCart }) => {
+const ShopCategory = ({ category }) => {
+  const {addToCart}=useCart();
   // Fetch products for the given category
   const products = productData[category] || []; 
 
