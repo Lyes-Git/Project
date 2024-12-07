@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState } from 'react';
 // Create the Cart Context
 const CartContext = createContext();
 
-// CartProvider to provide the cart data
+// CartProvider to provide the cart data and functions
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -48,6 +48,20 @@ export const CartProvider = ({ children }) => {
   // Function to remove items from the cart
   const removeFromCart = (itemId) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
+
+  // Function to update the quantity of an item in the cart
+  const updateQuantity = (itemId, quantity) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === itemId ? { ...item, quantity: Math.max(quantity, 1) } : item
+      )
+    );
+  };
+
+  // Clear the entire cart
+  const clearCart = () => {
+    setCartItems([]);
   };
 
   return (

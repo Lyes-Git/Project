@@ -19,7 +19,7 @@ const Shop = () => {
                 <img src={product.img} alt={product.name} className="product-image" />
                 <h3>{product.name}</h3>
                 <p>${product.price.toFixed(2)}</p>
-                <button onClick={() => addToCart(product)} className="add-to-cart">
+                <button onClick={() => addToCart({ ...product, quantity: 1 })} className="add-to-cart">
                   Add to Cart
                 </button>
               </div>
