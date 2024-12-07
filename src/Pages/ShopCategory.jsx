@@ -1,8 +1,10 @@
 import React from 'react';
 import './ShopCategory.css';
 import productData from '../Components/assets/data.js'; 
+import { useCart } from '../Context/CartContext.jsx';
 
-const ShopCategory = ({ category, addToCart }) => {
+const ShopCategory = ({ category }) => {
+  const {addToCart}=useCart();
   // Fetch products for the given category
   const products = productData[category] || []; 
 
@@ -22,7 +24,7 @@ const ShopCategory = ({ category, addToCart }) => {
               <h3 className="product-name">{product.name}</h3>
               <p className="product-price">${product.price.toFixed(2)}</p>
               <button
-                onClick={() => addToCart(product)}
+                onClick={() => addToCart({ ...product, quantity: 1})}
                 className="add-to-cart-btn"
               >
                 Add to Cart

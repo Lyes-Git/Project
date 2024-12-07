@@ -5,12 +5,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import SignUp from './Pages/SignUp'
 import LoginPage from './Pages/LoginPage'
+import { CartProvider } from './Context/CartContext';
 
 import Shop from './Pages/Shop'
 import ShopCategory from './Pages/ShopCategory'
 import Product from './Pages/Product'
 import Cart from './Pages/CartPage'
 import Dashboard from './Pages/Dashboard'
+import CartPage from './Pages/CartPage';
 
 
 
@@ -41,6 +43,7 @@ function App() {
   return (
 
     <div>
+      <CartProvider>
       <BrowserRouter>
       <Navbar userName={userName} onLogout={handleLogout} /> {/* Pass onLogout to Navbar */}
         <Routes>
@@ -52,7 +55,7 @@ function App() {
           <Route path='/product' element={<Product />} />
           <Route path=':productId' element={<Product />} />
 
-          <Route path='/cart' element={<Cart />} />
+          <Route path='/cart' element={<CartPage />} />
           {/* <Route path='/login' element={<Cart />} /> */}
           <Route path='/signup' element={<SignUp />} />
           <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
@@ -60,6 +63,7 @@ function App() {
         </Routes >
 
       </BrowserRouter>
+      </CartProvider>
 
 
     </div>
