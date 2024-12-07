@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: '', email: '', password: '', confirmPassword: '',
+    fullName: '', email: '', password: '', confirmPassword: '',
   });
 
+  // const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
+  // apiurl needs to be changed once I deploy to server again
+  const apiUrl = "http://localhost:3000/api/register"
+  console.log(apiUrl)
+
+
+  //updating the states
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -16,57 +23,52 @@ const SignUp = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+     
 
-    //Compare password and confirm pasword
+    //compare password and compare password
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match');
       return;
     }
 
-    try {
-      const response = await fetch('http://localhost:3000/api/register',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', },
-          body: JSON.stringify({
-            username: formData.username,
-            password: formData.password,
-          }),
-        });
+    //Add new user to database
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fullName: formData.fullName, // Include fullName in the request
+        email: formData.email,
+        password: formData.password,
+        confirmPassword: formData.confirmPassword,
+      }),
+    });
+    
 
-      if (response.ok) {
-        const data = await response.json();
-        alert(data.message);
-      } else {
-        const errorData = await response.json();
-        alert(`Error: ${errorData.error}`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('An error occurred. Please try again later.');
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message);
+    } else {
+      alert(`Error: ${data.error}`);
     }
   };
 
-  const toLoginPage = async (event) => {
-    console.log("to login page")
-  }
   return (
     <div className="LoginSignUp">
       <h1>Registration</h1>
 
-      {/* NAME================================ */}
       <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Name: </label><br />
+        <label htmlFor="fullName">Name: </label><br />
         <input
           type="text"
-          name="username"
-          placeholder="John"
-          value={formData.username}
+          name="fullName"
+          placeholder="John Wick"
+          value={formData.fullName}
           onChange={handleChange}
-          required />
+          required
+        />
         <br />
 
-        {/* EMAIL================================ */}
         <label htmlFor="email">Email address: </label><br />
         <input
           type="email"
@@ -74,17 +76,18 @@ const SignUp = () => {
           placeholder="John@gmail.com"
           value={formData.email}
           onChange={handleChange}
-          required />
+          required
+        />
         <br />
 
-        {/* PASSWORD ================================ */}
         <label htmlFor="password">Password: </label><br />
         <input
           type="password"
           name="password"
           value={formData.password}
           onChange={handleChange}
-          required />
+          required
+        />
         <br />
 
         <label htmlFor="confirmPassword">Confirm Password: </label><br />
@@ -93,27 +96,19 @@ const SignUp = () => {
           name="confirmPassword"
           value={formData.confirmPassword}
           onChange={handleChange}
-          required />
+          required
+        />
         <br /><br />
 
-        <button className="loginPageButton" type="submit" value="Submit">Register </button>
-
+        <button className="loginPageButton" type="submit">Register</button>
       </form>
 
-
-      <form onSubmit={toLoginPage}>
-        <br /><br />
-        <h2> Have an account already? </h2>
-
-        <br /><br />
-        <Link to='/login'>
-          <button className="loginPageButton" type="login" value="Login">Login </button>
-        </Link>
-
-      </form>
-
-
-
+      <br />
+      <h2> Have an account already? </h2>
+      <br />
+      <Link to='/login'>
+        <button className="loginPageButton">Login</button>
+      </Link>
     </div>
   );
 };

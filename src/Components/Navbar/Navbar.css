@@ -69,7 +69,20 @@
     align-items: center; /* Vertically aligns items */
     gap: 10px; /* Space between the cart and login/signup buttons */
     margin-right: 20px; /* Moves the entire section slightly to the left */
+    /* width: 10px; */
+    /* background-color: rgb(222, 170, 102); */
 }
+/* 
+.nav-login-cart>button {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-right: 20px; 
+     width: 10px; 
+     background-color: rgb(222, 170, 102);
+     margin-top: 100px;
+} */
+
 
 .nav-login-cart button {
     width: 157px;
@@ -77,25 +90,51 @@
     outline: none;
     border: 1px solid gray;
     border-radius: 75px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     color: black;
     background: white;
     cursor: pointer;
     margin-right: 10px;
-
+    height:auto;
 }
+
+/* When hovered over the colour changes */
+.nav-login-cart button:hover {
+    background: rgb(158, 210, 228); /* Change background color on hover */
+    color: white; /* Change text color on hover */
+    border: 1px solid black; /* Optional: change border color */
+}
+
+
 .nav-cart-count{
     width: 22px;
     height: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -75px;
-    margin-left: 65px;
+    margin-top: -45px;
+    margin-left: -20px;
+    /* margin-right: 5px;   */
     border-radius: 11px;
     font-size: 14px;
     color: white;
     background: red;
     font-weight: bold; /* Emphasizes the count number */
 }
+
+
+/* .signupButton {
+    height: 100px; 
+    width: auto;
+    padding: 0 20px; 
+    font-size: 16px;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    border: 2px solid #007bff; 
+    background-color: #007bff; 
+    color: white; 
+    cursor: pointer; 
+    border-radius: 5px;
+} */
