@@ -1,13 +1,16 @@
 import React from 'react';
-import Navbar from '../Components/Navbar/Navbar.jsx'; // Ensure correct import path
-import Hero from '../Components/Hero/Hero.jsx';  // Assuming Hero is your home page content
-import './HomePage.css';  // Your HomePage styling (optional)
+import Hero from '../Components/Hero/Hero'; // Adjust the path as needed
+import './HomePage.css';
 
 const HomePage = () => {
   return (
     <div className="home-page">
-      <Navbar /> {/* Render Navbar here */}
-      <Hero />  {/* Your Hero section */}
+      <Hero />
+      <div className="home-page-content">
+        <h1>Welcome to Jeweler!</h1>
+        <p>Your one-stop shop for exquisite jewelry and accessories.</p>
+        <button onClick={() => window.location.href = '/shop'}>Explore Now</button>
+      </div>
     </div>
   );
 };

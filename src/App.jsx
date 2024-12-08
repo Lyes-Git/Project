@@ -13,6 +13,7 @@ import Product from './Pages/Product';
 import CartPage from './Pages/CartPage';
 import Dashboard from './Pages/Dashboard';
 import CheckoutPage from './Pages/CheckoutPage';
+import HomePage from './Pages/HomePage';
 
 function App() {
   const [userName, setUserName] = useState(null);
@@ -49,7 +50,8 @@ function App() {
         <BrowserRouter>
           <Navbar userName={userName} onLogout={handleLogout} /> {/* Pass onLogout to Navbar */}
           <Routes>
-            <Route path="/" element={<Shop />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/rings" element={<ShopCategory category="rings" />} />
             <Route path="/necklaces" element={<ShopCategory category="necklaces" />} />
             <Route path="/earrings" element={<ShopCategory category="earrings" />} />
