@@ -94,13 +94,20 @@
 
 /* Success Message Styling */
 .checkout-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
     text-align: center;
-    padding: 20px;
-}
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Neutral text color */
+  }
 
 .checkout-success h2 {
     font-size: 1.8rem;
-    color: #28a745; /* Green for success */
+    color: #28a745; /* Green success color */
+    font-weight: bold;
 }
 
 .checkout-success p {
