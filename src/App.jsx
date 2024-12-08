@@ -12,6 +12,7 @@ import ShopCategory from './Pages/ShopCategory';
 import Product from './Pages/Product';
 import CartPage from './Pages/CartPage';
 import Dashboard from './Pages/Dashboard';
+import CheckoutPage from './Pages/CheckoutPage';
 
 function App() {
   const [userName, setUserName] = useState(null);
@@ -60,6 +61,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
             <Route path="/dashboard" element={<Dashboard userName={userName} />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
