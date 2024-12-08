@@ -84,15 +84,13 @@
 }
 
 .nav-login-cart button {
-    background: rgb(158, 210, 228); /* Change background color on hover */
-    color: black; /* Change text color on hover */
-    border: 0.1px solid black; /* Optional: change border color */
+    background:  #007bff; /* Change background color on hover */
+    color: white; /* Change text color on hover */
 }
 
 .nav-login-cart button:hover {
-    background: rgb(158, 210, 228); /* Highlight on hover */
+    background:  #0056b3; /* Highlight on hover */
     color: white; /* Text turns white */
-    border: 1px solid black; /* Black border on hover */
 }
 
 /* Cart Counter */
