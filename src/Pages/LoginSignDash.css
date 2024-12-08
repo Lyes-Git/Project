@@ -1,0 +1,29 @@
+.lsd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Horizontally center content */
+    justify-content: flex-start;
+    /* Start content at the top */
+    margin: 0;
+    padding-top: 100px;
+    width: 100%;
+    min-height: 100vh;
+    /* Full viewport height */
+    background-color: #f9f9f9;
+    /* Light background for all pages */
+    color: #333;
+    /* Neutral text color */
+
+}
+
+.loginPageButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+

@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+// import './LoginSignDash.css';
+import '../App.css';
 
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
     const [errorMessage, setErrorMessage] = useState('');
-    // const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
+    // const apiUrl = import.meta.env.VITE_API_URL;
     // apiurl needs to be changed once I deploy to server again
-    // const apiUrl = "http://localhost:3000/api/login"
-    const apiUrl = import.meta.env.VITE_API_URL;
+    const apiUrl = "http://localhost:3000/api/login"
     // console.log(apiUrl)
     const navigate = useNavigate();
 
@@ -47,7 +48,7 @@ const LoginPage = ({ onLogin }) => {
 
 
     return (
-        <div className="LoginSignUp">
+        <div className="lsd">
             <form onSubmit={loginUser}>
                 <h1>Login </h1>
 
