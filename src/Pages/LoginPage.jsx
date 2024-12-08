@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import dotenv from 'dotenv';
-dotenv.config();
 
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
@@ -10,7 +8,7 @@ const LoginPage = ({ onLogin }) => {
     // const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
     // apiurl needs to be changed once I deploy to server again
     // const apiUrl = "http://localhost:3000/api/login"
-    const apiUrl = process.env.REACT_APP_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     // console.log(apiUrl)
     const navigate = useNavigate();
 

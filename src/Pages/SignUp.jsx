@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +8,7 @@ const SignUp = () => {
 
   // const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
   // apiurl needs to be changed once I deploy to server again
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = import.meta.env.VITE_API_URL;
   // const apiUrl = "http://localhost:3000/api/register"
   console.log(apiUrl)
 
