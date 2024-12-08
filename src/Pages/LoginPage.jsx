@@ -7,7 +7,8 @@ const LoginPage = ({ onLogin }) => {
     const [errorMessage, setErrorMessage] = useState('');
     // const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
     // apiurl needs to be changed once I deploy to server again
-    const apiUrl = "http://localhost:3000/api/login"
+    // const apiUrl = "http://localhost:3000/api/login"
+    const apiUrl = process.env.REACT_APP_API_URL;
     // console.log(apiUrl)
     const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const LoginPage = ({ onLogin }) => {
         event.preventDefault();
 
         //post to database
-        const response = await fetch(apiUrl, {
+        const response = await fetch(apiUrl + "/api/Login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
