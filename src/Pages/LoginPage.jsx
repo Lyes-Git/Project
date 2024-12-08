@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import dotenv from 'dotenv';
+dotenv.config();
 
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
@@ -22,7 +24,7 @@ const LoginPage = ({ onLogin }) => {
         event.preventDefault();
 
         //post to database
-        const response = await fetch(apiUrl + "/api/Login", {
+        const response = await fetch(apiUrl + "api/Login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

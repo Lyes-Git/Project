@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -33,7 +35,7 @@ const SignUp = () => {
     }
 
     //Add new user to database
-    const response = await fetch(apiUrl + "/api/register", {
+    const response = await fetch(apiUrl + "api/register", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
