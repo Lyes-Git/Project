@@ -1,108 +1,133 @@
- /* Shop Page Styling */
- .shop {
+/* Shop Page Styling */
+.shop {
     display: flex;
     flex-direction: column;
     align-items: center; /* Horizontally center content */
-    justify-content: center; /* Vertically center content */
-    height: calc(100vh - 80px); /* Adjust for navbar height (80px example) */
-    padding-top:1000px;
+    justify-content: flex-start; /* Start content below the navbar */
+    padding-top: 100px; /* Adjust padding to account for navbar height */
     text-align: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: #ffffff; /* Ensure background matches light theme */
-  }
-  
-  
-  .shop-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    background-color: var(--background-light); /* Matches other page backgrounds */
+    color: var(--text-dark); /* Ensures consistent font color */
+    min-height: calc(100vh - 80px); /* Full viewport height minus navbar */
+}
+
+/* Title Styling */
+.shop-title {
+    font-size: 2.5rem;
+    margin: 20px 0; /* Adds spacing above and below */
     font-weight: bold;
-    color: black;
-  }
-  
-  /* Category Section Styling */
-  .product-category {
+    color: var(--text-dark); /* Matches other page titles */
+}
+
+/* Category Section Styling */
+.product-category {
     width: 100%;
     margin-bottom: 40px; /* Space between categories */
-  }
-  
-  .category-title {
+    padding: 0 20px; /* Adds padding for consistent alignment */
+}
+
+/* Category Title Styling */
+.category-title {
     font-size: 1.5rem;
     margin-bottom: 20px;
-    text-align: left; /* Align category titles to the left */
+    text-align: left; /* Aligns category titles to the left */
     font-weight: bold;
-    color: black;
-    padding-left: 10px;
-  }
-  
-  /* Grid Layout for Products */
-  .product-grid {
+    color: var(--text-dark); /* Consistent text color */
+    border-bottom: 1px solid #ddd; /* Subtle underline */
+    padding-bottom: 5px; /* Adds spacing below the title */
+}
+
+/* Grid Layout for Products */
+.product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive grid */
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid layout */
+    gap: 20px; /* Spacing between grid items */
     margin: 0 auto;
-  }
-  
-  /* Individual Product Card Styling */
-  .product-card {
-    background-color: white;
+    padding: 20px; /* Adds consistent spacing */
+    width: 100%;
+}
+
+/* Individual Product Card Styling */
+.product-card {
+    background-color: var(--background-light); /* Matches other page cards */
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px; /* Consistent rounded corners */
     padding: 15px;
     text-align: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .product-card:hover {
+}
+
+.product-card:hover {
     transform: scale(1.05); /* Interactive hover effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .product-image {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Product Image Styling */
+.product-image {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
-    border-radius: 5px;
-  }
-  
-  .product-card h3 {
-    font-size: 1.1rem;
-    margin: 10px 0;
-    color: black;
-  }
-  
-  .product-card p {
+    border-radius: 5px; /* Consistent rounded corners */
+}
+
+/* Product Name Styling */
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 10px 0;
+  color: black;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis (...) for overflow */
+}
+
+
+/* Product Price Styling */
+.product-card p {
     font-size: 1rem;
     margin: 5px 0;
-    color: #555;
-  }
-  
-  /* Add to Cart Button Styling */
-  .add-to-cart {
-    background-color: black;
+    color: var(--text-dark); /* Matches text color */
+}
+
+/* Add to Cart Button Styling */
+.add-to-cart {
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
   }
-  
-  .add-to-cart:hover {
-    background-color: #333;
+
+  .add-to-cart-btn:hover {
+    background-color: #002c5c;
   }
   
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
     .product-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
+        grid-template-columns: repeat(2, 1fr); /* 2 products per row on tablets */
     }
-  }
-  
-  @media (max-width: 480px) {
+
+    .category-title {
+        text-align: center; /* Center-align titles for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
     .product-grid {
-      grid-template-columns: 1fr; /* 1 product per row on small screens */
+        grid-template-columns: 1fr; /* 1 product per row on small screens */
     }
-  }
-  
+
+    .shop-title {
+        font-size: 1.5rem; /* Adjusted font size */
+    }
+
+    .add-to-cart {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}

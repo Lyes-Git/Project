@@ -131,6 +131,14 @@
   background-color: #e03e3e;
 }
 
+.cart-actions {
+  display: flex;
+  justify-content: space-between; /* Ensures even spacing between buttons */
+  align-items: center;
+  margin-top: 20px;
+  padding: 0 10px; /* Adds a bit of horizontal padding */
+}
+
 /* Responsiveness for smaller screens */
 @media (max-width: 768px) {
   .cart-item-list {

@@ -27,7 +27,7 @@ const Navbar = ({ userName, onLogout }) => {
   } else {
     loginButton = (
       <Link to="/signup">
-        <button className="signupButton">signup/login</button>
+        <button className="signupButton">Login / Signup</button>
       </Link>
     );
   }
@@ -35,14 +35,20 @@ const Navbar = ({ userName, onLogout }) => {
   return (
     <div className='navbar'>
       <div className="nav-logo">
-        <img src={shopping_bag} alt="" />
-        <p>SHOPPERS</p>
+      <Link to="/" className="nav-home-link"> 
+      <img src={shopping_bag} alt="" />
+      </Link>
+
+      <Link to="/" className="nav-home-link"> 
+        <p>JEWELLER</p>
+        </Link>
+      
       </div>
       <ul className="nav-menu">
-        <li onClick={() => { setMenu("shop") }}><Link to='/'>Shop</Link> </li>
+        <li onClick={() => { setMenu("shop") }}><Link to='/shop'>Shop</Link> </li>
         <li onClick={() => { setMenu("rings") }}><Link to='/rings'>Rings</Link></li>
-        <li onClick={() => { setMenu("neclaces") }}><Link to='/neclaces'>Necklaces</Link></li>
-        <li onClick={() => { setMenu("earings") }}><Link to='/earings'>Earrings</Link></li>
+        <li onClick={() => { setMenu("necklaces") }}><Link to='/necklaces'>Necklaces</Link></li>
+        <li onClick={() => { setMenu("earrings") }}><Link to='/earrings'>Earrings</Link></li>
         <li onClick={() => { setMenu("bracelets") }}><Link to='/bracelets'>Bracelets</Link></li>
         <hr />
       </ul>

@@ -1,13 +1,16 @@
 .shop-category {
-  padding: 20px;
+  padding: 100px;
   text-align: center;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  justify-items: center;
+  grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+  gap: 20px; /* Space between products */
+  justify-content: center; /* Center the grid items horizontally */
+  margin: 0 auto; /* Center the grid container on the page */
+  padding: 20px; /* Add padding around the grid */
+  max-width: 900px; /* Restrict maximum width for better centering */
 }
 
 .product-card {

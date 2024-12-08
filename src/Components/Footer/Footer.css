@@ -1,59 +1,22 @@
 .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    width: 1400px;
-    margin-bottom: auto;
-    position:fixed;
-    width: 100%;
-    bottom: 0;
-  }
-  
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  .footer-bag {
-    margin-left: 20px;
-  }
-  
-  .footer-left img.footer-bag {
-    width: 40px;
-    height: auto;
-  }
-  .footer-icons img,
-  .footer-bag img {
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-    
-  }
-  .footer-icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: #242424; /* Dark background */
+  color: #ffffff; /* White text */
+  text-align: center;
+  padding: 20px 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
 
-  .footer-login {
-    margin-right: 20px;
-  }
-  
-  .footer-right .login-button {
-    padding: 5px 10px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .footer-login-button {
-    text-decoration: none;
-    color: #000;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-  
+.footer-content a {
+  color: #646cff; /* Primary color for links */
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-content a:hover {
+  color: #535bf2; /* Darker shade on hover */
+  text-decoration: underline;
+}
+

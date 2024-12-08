@@ -1,0 +1,140 @@
+/* Checkout Page Container */
+.checkout-page {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #000; /* Default black text color */
+}
+
+/* Order Summary Section */
+.checkout-summary {
+    margin-bottom: 30px;
+}
+
+.checkout-summary h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000; /* Black font */
+}
+
+.checkout-summary ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.checkout-summary ul li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #000; /* Black font */
+}
+
+.checkout-summary h3 {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #000; /* Black font */
+}
+
+/* Checkout Form Styling */
+.checkout-form {
+    margin-top: 20px;
+}
+
+.checkout-form h2 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #000; /* Black font */
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #000; /* Black font for input */
+}
+
+.checkout-form textarea {
+    resize: none;
+    height: 100px;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: #646cff;
+    box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+/* Place Order Button */
+.checkout-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #646cff;
+    color: white; /* Change to #000 for black text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover {
+    background-color: #535bf2;
+}
+
+/* Success Message Styling */
+.checkout-success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    background-color: #f9f9f9; /* Light background */
+    color: #333; /* Neutral text color */
+  }
+
+.checkout-success h2 {
+    font-size: 1.8rem;
+    color: #28a745; /* Green success color */
+    font-weight: bold;
+}
+
+.checkout-success p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: #000; /* Black font */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .checkout-page {
+        padding: 15px;
+    }
+
+    .checkout-summary h2,
+    .checkout-form h2 {
+        font-size: 1.3rem;
+    }
+
+    .checkout-form input,
+    .checkout-form textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .checkout-button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+}

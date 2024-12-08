@@ -1,60 +1,72 @@
-.hero{
+.hero {
     height: 100vh;
-    background: linear-gradient(180 deg,white,black,60%);
+    background: linear-gradient(180deg, white 40%, black 100%);
     display: flex;
-
-}
-.hero-left{
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px; /* Add horizontal padding for spacing */
+    position: relative;
+  }
+  
+  .hero-left {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 20;
+    gap: 20px; /* Corrected gap with px unit */
     padding-left: 180px;
     line-height: 1.1;
-}
-
-.hero-left h2{
-   
-    color:black;
+  }
+  
+  .hero-left h2 {
+    color: black;
     font-size: 26px;
     font-weight: 600;
-
-}
-.hero-left p{
-   color: black; 
-   font-size: 50px;
-   font-weight: 700;
-}
-.hero-right{
+  }
+  
+  .hero-left p {
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+  }
+  
+  .hero-right {
     display: flex;
-    
     align-items: center;
-    gap:20px;
-
-}
-.hero-right img{
+    gap: 20px;
+  }
+  
+  .hero-right img {
+    margin-left: 100px;
     width: 400px;
     border-radius: 10px;
     background-color: beige;
-   
-}
-.latest-btn{
+  }
+  
+  .latest-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    width: 310px;
+    width: 300px;
     height: 50px;
-    border-radius: 75px;
-    margin-top: 70px;
-    margin-left: 175px;
-    background-color: brown;
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-    position: absolute; /* Positioning the button absolutely */
-    bottom: 30px; /* Moves the button to the bottom of the screen */
-    left: 22%;
-    transform: translateX(-50%); 
-}
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+    color: white; /* Ensure button text is white */
+    font-size: 18px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+  }
+  
+  .latest-btn:hover {
+    background: linear-gradient(90deg, #ff6a4d, #fd9a6a);
+    transform: translateX(-50%) scale(1.05);
+  }
+  

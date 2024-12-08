@@ -1,24 +1,17 @@
-.LoginSignUp {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Horizontal centering */
-    margin-top: 100px;
-    /* justify-content: center;  */
-    /* height: 100vh;  */
-    height: auto;
-    width: 500px;
-    text-align: center; /* Align text inside the div */
-    border: 1px solid #ccc; /* Optional: for better visibility of the box */
-    padding: 20px; /* Optional: Add padding for spacing inside the box */
-    margin-bottom: 500px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for aesthetics */
-  }
-  
-  .LoginSignUp input {
-    color: #000; /* Text color - change to black */
-    background-color: #fff; /* Background color of input */
-  }
+.content {
+  margin-top: 80px; /* Adjust to match Navbar height */
+  padding: 20px;
+}
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .Dashboard{
-  }
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { useCart } from '../Context/CartContext';
-import './Cartpage.css'
+import { Link } from 'react-router-dom'; 
+import './Cartpage.css';
 
 const CartPage = () => {
-  const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, clearCart }=useCart();
+  const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, clearCart } = useCart();
+
   const calculateTotal = () =>
     cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -46,9 +48,19 @@ const CartPage = () => {
             <h2>Total Price: ${calculateTotal().toFixed(2)}</h2>
           </div>
           <div className="cart-actions">
-            <button onClick={clearCart} className="clear-cart-btn">
+            <button
+              onClick={() => {
+                if (window.confirm('Are you sure you want to clear the cart?')) {
+                  clearCart();
+                }
+              }}
+              className="clear-cart-btn"
+            >
               Clear Cart
             </button>
+            <Link to="/checkout">
+              <button className="checkout-btn">Proceed to Checkout</button>
+            </Link>
           </div>
         </div>
       )}
