@@ -7,7 +7,7 @@ const HomePage = () => {
     <div className="home-page">
       <Hero />
       <div className="home-page-content">
-        <h1>Welcome to Jeweler!</h1>
+        <h1>Welcome to Jeweller!</h1>
         <p>Your one-stop shop for exquisite jewelry and accessories.</p>
         <button onClick={() => window.location.href = '/shop'}>Explore Now</button>
       </div>

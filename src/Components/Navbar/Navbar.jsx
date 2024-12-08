@@ -27,7 +27,7 @@ const Navbar = ({ userName, onLogout }) => {
   } else {
     loginButton = (
       <Link to="/signup">
-        <button className="signupButton">Signup / Login</button>
+        <button className="signupButton">Login / Signup</button>
       </Link>
     );
   }

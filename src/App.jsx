@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
+import Footer from './Components/Footer/Footer'; 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import SignUp from './Pages/SignUp';
 import LoginPage from './Pages/LoginPage';
 import { CartProvider } from './Context/CartContext';
@@ -65,6 +66,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard userName={userName} />} />
             <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
+          <Footer /> 
         </BrowserRouter>
       </CartProvider>
     </div>
