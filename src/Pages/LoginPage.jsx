@@ -6,8 +6,10 @@ const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
     const [errorMessage, setErrorMessage] = useState('');
     // const apiUrl = "https://shoppers-group-project.onrender.com/api/login";
+    const apiUrl = process.env.REACT_APP_API_URL; 
+    // above for deployment, below for local testing.
     // apiurl needs to be changed once I deploy to server again
-    const apiUrl = "http://localhost:3000/api/login"
+    // const apiUrl = "http://localhost:3000/api/login"
     // console.log(apiUrl)
     const navigate = useNavigate();
 
@@ -20,8 +22,8 @@ const LoginPage = ({ onLogin }) => {
     const loginUser = async (event) => {
         event.preventDefault();
 
-        //post to database
-        const response = await fetch(apiUrl, {
+        //post to database. Sends email and hashed password
+        const response = await fetch(apiUrl + "/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

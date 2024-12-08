@@ -7,8 +7,11 @@ const SignUp = () => {
   });
 
   // const apiUrl = "https://shoppers-group-project.onrender.com/api/register";
+  const apiUrl = process.env.REACT_APP_API_URL; 
+
+  // above for deployment, below for local testing.
   // apiurl needs to be changed once I deploy to server again
-  const apiUrl = "http://localhost:3000/api/register"
+  // const apiUrl = "http://localhost:3000/api/register"
   console.log(apiUrl)
 
 
@@ -32,7 +35,7 @@ const SignUp = () => {
     }
 
     //Add new user to database
-    const response = await fetch(apiUrl, {
+    const response = await fetch(apiUrl + "/register", {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
