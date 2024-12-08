@@ -48,7 +48,7 @@ const LoginPage = ({ onLogin }) => {
 
 
     return (
-        <div className="lsd">
+        <div className="LoginSignUp">
             <form onSubmit={loginUser}>
                 <h1>Login </h1>
 

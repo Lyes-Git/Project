@@ -6,7 +6,7 @@ import '../App.css';
 const Dashboard = ({userName}) => {
 
     return (
-        <div className="lsd">
+        <div className="LoginSignUp">
             <h2>Dashboard for {userName}</h2>
             <p>asdasdas</p>
             <button>View order history</button>
