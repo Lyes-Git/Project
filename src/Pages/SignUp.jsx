@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './LoginSignDash.css';
+// import './LoginSignDash.css';
 import '../App.css';
 
 const SignUp = () => {
@@ -9,8 +9,8 @@ const SignUp = () => {
   });
 
   // apiurl needs to be changed once I deploy to server again
-  // const apiUrl = import.meta.env.VITE_API_URL;
-  const apiUrl = "http://localhost:3000/api/register"
+  const apiUrl = import.meta.env.VITE_API_URL;
+  // const apiUrl = "http://localhost:3000/api/register"
   console.log(apiUrl)
 
 
