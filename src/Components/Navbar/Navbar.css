@@ -1,45 +1,53 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
-    background-color: #f8f8f8; /* Light background for better readability */
-    position: fixed; /* Makes the navbar fixed at the top */
+    padding: 16px 20px; /* Adjust padding for better spacing */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Light shadow for better aesthetics */
+    background-color: #f8f8f8; /* Light background for readability */
+    position: fixed; /* Fixed at the top */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensures it stays above other elements */
+    z-index: 1000; /* Keeps navbar above other elements */
 }
+
+.navbar.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Optional: Change background for the fixed state */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 
 .nav-logo {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 100px;
 }
 
 .nav-logo p {
     color: black;
     font-size: 20px;
     font-weight: 500;
-    text-transform: uppercase; /* Adds consistent uppercase style */
+    text-transform: uppercase; /* Consistent uppercase style */
 }
 
 .nav-logo img {
     width: 90px;
     height: 70px;
-    object-fit: contain; /* Ensures the image fits properly without distortion */
+    object-fit: contain; /* Prevents distortion */
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 50px;
+    gap: 40px; /* Adjust gap between menu items */
     color: gray;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
-    margin-right: 100px;
 }
 
 .nav-menu li {
@@ -49,11 +57,13 @@
     justify-content: center;
     gap: 3px;
     cursor: pointer;
-    transition: color 0.3s ease; /* Smooth hover effect */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .nav-menu li:hover {
-    color: black; /* Highlight text on hover */
+    color: black; /* Text color changes to black */
+    background-color: rgba(200, 200, 200, 0.2); /* Light gray background on hover */
+    border-radius: 5px; /* Optional: adds slight rounding effect */
 }
 
 .nav-menu hr {
@@ -64,57 +74,35 @@
     background-color: red;
 }
 
+/* Login and Cart Section */
 .nav-login-cart {
     display: flex;
-    align-items: center; /* Vertically aligns items */
-    gap: 10px; /* Space between the cart and login/signup buttons */
-    margin-right: 20px; /* Moves the entire section slightly to the left */
-    /* width: 10px; */
-    /* background-color: rgb(222, 170, 102); */
+    align-items: center; /* Vertically centers items */
+    gap: 15px; /* Space between buttons and cart */
+    margin-right: 20px; /* Adjust overall position */
 }
-/* 
-.nav-login-cart>button {
-    display: flex;
-    align-items: center;
-    gap: 10px; 
-    margin-right: 20px; 
-     width: 10px; 
-     background-color: rgb(222, 170, 102);
-     margin-top: 100px;
-} */
-
 
 .nav-login-cart button {
-    width: 157px;
-    height: 48px;
-    outline: none;
-    border: 1px solid gray;
-    border-radius: 75px;
-    font-size: 15px;
-    font-weight: 500;
-    color: black;
-    background: white;
-    cursor: pointer;
-    margin-right: 10px;
-    height:auto;
-}
-
-/* When hovered over the colour changes */
-.nav-login-cart button:hover {
     background: rgb(158, 210, 228); /* Change background color on hover */
-    color: white; /* Change text color on hover */
-    border: 1px solid black; /* Optional: change border color */
+    color: black; /* Change text color on hover */
+    border: 0.1px solid black; /* Optional: change border color */
 }
 
+.nav-login-cart button:hover {
+    background: rgb(158, 210, 228); /* Highlight on hover */
+    color: white; /* Text turns white */
+    border: 1px solid black; /* Black border on hover */
+}
 
-.nav-cart-count{
+/* Cart Counter */
+.nav-cart-count {
     width: 22px;
     height: 22px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: -45px;
-    margin-left: -20px;
+    margin-left: -22px;
     /* margin-right: 5px;   */
     border-radius: 11px;
     font-size: 14px;
@@ -123,18 +111,24 @@
     font-weight: bold; /* Emphasizes the count number */
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 20px; /* Reduce gap for smaller screens */
+        font-size: 16px;
+    }
 
-/* .signupButton {
-    height: 100px; 
-    width: auto;
-    padding: 0 20px; 
-    font-size: 16px;
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    border: 2px solid #007bff; 
-    background-color: #007bff; 
-    color: white; 
-    cursor: pointer; 
-    border-radius: 5px;
-} */
+    .nav-login-cart {
+        gap: 10px; /* Adjust spacing for smaller screens */
+    }
+
+    .nav-login-cart button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .nav-logo img {
+        width: 70px;
+        height: 50px;
+    }
+}
