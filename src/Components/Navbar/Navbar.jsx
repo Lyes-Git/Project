@@ -27,7 +27,7 @@ const Navbar = ({ userName, onLogout }) => {
   } else {
     loginButton = (
       <Link to="/signup">
-        <button className="signupButton">signup/login</button>
+        <button className="signupButton">Signup / Login</button>
       </Link>
     );
   }
@@ -41,8 +41,8 @@ const Navbar = ({ userName, onLogout }) => {
       <ul className="nav-menu">
         <li onClick={() => { setMenu("shop") }}><Link to='/'>Shop</Link> </li>
         <li onClick={() => { setMenu("rings") }}><Link to='/rings'>Rings</Link></li>
-        <li onClick={() => { setMenu("neclaces") }}><Link to='/neclaces'>Necklaces</Link></li>
-        <li onClick={() => { setMenu("earings") }}><Link to='/earings'>Earrings</Link></li>
+        <li onClick={() => { setMenu("necklaces") }}><Link to='/necklaces'>Necklaces</Link></li>
+        <li onClick={() => { setMenu("earrings") }}><Link to='/earrings'>Earrings</Link></li>
         <li onClick={() => { setMenu("bracelets") }}><Link to='/bracelets'>Bracelets</Link></li>
         <hr />
       </ul>
