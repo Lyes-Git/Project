@@ -15,9 +15,11 @@ import CartPage from './Pages/CartPage';
 import Dashboard from './Pages/Dashboard';
 import CheckoutPage from './Pages/CheckoutPage';
 import HomePage from './Pages/HomePage';
+import OrderHistory from './Pages/OrderHistory';
 
 function App() {
   const [userName, setUserName] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
 
   // Load user from localStorage on initial render
   useEffect(() => {
@@ -27,11 +29,14 @@ function App() {
     }
   }, []);
 
-  // Function to update username after login
-  const handleLogin = (name) => {
+  // Function to update username and email after login
+  const handleLogin = (name, email) => {
     setUserName(name);
+    setUserEmail(email);
     localStorage.setItem('userName', name); // Save user to localStorage
+    localStorage.setItem('userEmail', email); // Save email to localStorage
   };
+
 
   // Function to handle logout
   const handleLogout = () => {
@@ -65,6 +70,7 @@ function App() {
             <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
             <Route path="/dashboard" element={<Dashboard userName={userName} />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/orderhistory" element={<OrderHistory userEmail={userEmail} />} /> {/* Pass userEmail */}
           </Routes>
           <Footer /> 
         </BrowserRouter>

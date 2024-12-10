@@ -19,21 +19,36 @@ const CheckoutPage = () => {
     setUserDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (!userDetails.name || !userDetails.email || !userDetails.address) {
       alert('Please fill out all fields.');
       return;
     }
-
-    // Simulate order submission (replace with backend API call if needed)
-    console.log('Order Details:', { userDetails, cartItems });
-
-    // Clear the cart and show success message
-    clearCart();
-    setIsOrderPlaced(true);
+  
+    try {
+      const response = await fetch('http://localhost:3000/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userDetails, cartItems }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Order placed successfully:', data);
+        clearCart();
+        setIsOrderPlaced(true);
+      } else {
+        const errorData = await response.json();
+        alert(errorData.error || 'Failed to place order');
+      }
+    } catch (error) {
+      console.error('Error placing order:', error);
+      alert('An error occurred while placing your order.');
+    }
   };
+  
 
   if (isOrderPlaced) {
     return (

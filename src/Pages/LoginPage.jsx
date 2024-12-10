@@ -7,10 +7,11 @@ import '../App.css';
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
     const [errorMessage, setErrorMessage] = useState('');
-    const apiUrl = import.meta.env.VITE_API_URL;
+    // const apiUrl = import.meta.env.VITE_API_URL;
     // apiurl needs to be changed once I deploy to server again
-    // const apiUrl = "http://localhost:3000/api/login"
-    // console.log(apiUrl)
+    //const apiUrl = "http://localhost:3000/api/login"
+    const apiUrl = "http://localhost:3000/"
+    console.log(apiUrl)
     const navigate = useNavigate();
 
     //updating the states
@@ -21,9 +22,9 @@ const LoginPage = ({ onLogin }) => {
     //Function to handle form submission for login
     const loginUser = async (event) => {
         event.preventDefault();
-
-        //post to database
-        const response = await fetch(apiUrl + "api/Login", {
+    
+        // Post to database
+        const response = await fetch(apiUrl + "api/login", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -31,20 +32,19 @@ const LoginPage = ({ onLogin }) => {
                 password: formData.password,
             }),
         });
-
+    
         const data = await response.json();
-
-        //if password matches or not
-        //When it matches it will redirect you to dashboard page
+    
+        // Check if login was successful
         if (response.ok) {
-            onLogin(data.fullName); // Pass the full name to App.jsx
-            console.log(data.fullName);
+            onLogin(data.fullName, formData.email); // Pass both full name and email to App.jsx
+            console.log(`Logged in as: ${data.fullName}, Email: ${formData.email}`);
             navigate('/dashboard');
-
         } else {
             alert(data.error);
         }
     };
+    
 
 
     return (

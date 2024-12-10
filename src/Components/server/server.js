@@ -87,6 +87,64 @@ app.post('/api/login', async (req, res) => {
 
 });
 
+// Checkout route
+app.post('/api/checkout', async (req, res) => {
+  const { userDetails, cartItems } = req.body;
+
+  if (!userDetails || !cartItems || cartItems.length === 0) {
+    return res.status(400).json({ error: 'User details and cart items are required' });
+  }
+
+  try {
+    const order = {
+      userDetails,
+      cartItems,
+      totalAmount: cartItems.reduce((total, item) => total + item.price * item.quantity, 0),
+      orderDate: new Date(),
+    };
+
+    const ordersCollection = client.db('Authentication').collection('orders');
+    const result = await ordersCollection.insertOne(order);
+
+    res.status(201).json({ message: 'Order placed successfully', orderId: result.insertedId });
+  } catch (error) {
+    console.error('Failed to process checkout:', error);
+    res.status(500).json({ error: 'Failed to place order' });
+  }
+});
+
+
+// Get order history for a user
+app.get('/api/order-history', async (req, res) => {
+  const { email } = req.query;
+
+  if (!email) {
+    return res.status(400).json({ error: 'Email is required' });
+  }
+
+  try {
+    const ordersCollection = client.db('Authentication').collection('orders');
+
+    // Use a case-insensitive query for email matching
+    const orders = await ordersCollection.find({
+      'userDetails.email': { $regex: new RegExp(`^${email}$`, 'i') },
+    }).toArray();
+
+    if (orders.length === 0) {
+      return res.status(404).json({ message: 'No orders found for this email' });
+    }
+
+    res.status(200).json({ orders });
+  } catch (error) {
+    console.error('Error retrieving order history:', error);
+    res.status(500).json({ error: 'Failed to retrieve order history' });
+  }
+});
+
+
+
+
+
 // Serve React static files in production
 const __dirname = path.resolve(); // Ensure correct directory reference
 
