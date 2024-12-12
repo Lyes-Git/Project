@@ -7,10 +7,10 @@ import '../App.css';
 const LoginPage = ({ onLogin }) => {
     const [formData, setFormData] = useState({ email: '', password: '', });
     const [errorMessage, setErrorMessage] = useState('');
-    // const apiUrl = import.meta.env.VITE_API_URL;
+    const apiUrl = import.meta.env.VITE_API_URL;
     // apiurl needs to be changed once I deploy to server again
     //const apiUrl = "http://localhost:3000/api/login"
-    const apiUrl = "http://localhost:3000/"
+    // const apiUrl = "http://localhost:3000/"
     console.log(apiUrl)
     const navigate = useNavigate();
 
