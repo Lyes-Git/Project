@@ -16,6 +16,7 @@ import Dashboard from './Pages/Dashboard';
 import CheckoutPage from './Pages/CheckoutPage';
 import HomePage from './Pages/HomePage';
 import OrderHistory from './Pages/OrderHistory';
+import ProductDetails from './Pages/ProductDetails';
 
 function App() {
   const [userName, setUserName] = useState(null);
@@ -64,6 +65,7 @@ function App() {
             <Route path="/bracelets" element={<ShopCategory category="bracelets" />} />
             <Route path="/product" element={<Product />} />
             <Route path=":productId" element={<Product />} />
+            <Route path="/product/:category/:id" element={<ProductDetails />} />
 
             <Route path="/cart" element={<CartPage />} />
             <Route path="/signup" element={<SignUp />} />

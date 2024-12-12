@@ -2,6 +2,7 @@ import React from 'react';
 import './ShopCategory.css';
 import productData from '../Components/assets/data.js'; 
 import { useCart } from '../Context/CartContext.jsx';
+import { Link } from 'react-router-dom'; 
 
 const ShopCategory = ({ category }) => {
   const {addToCart}=useCart();
@@ -20,8 +21,11 @@ const ShopCategory = ({ category }) => {
         <div className="product-grid">
           {sortedProducts.map((product) => (
             <div key={product.id} className="product-card">
+                <Link to={`/product/${category}/${product.id}`}>
               <img src={product.img} alt={product.name} className="product-image" />
               <h3 className="product-name">{product.name}</h3>
+
+              </Link>
               <p className="product-price">${product.price.toFixed(2)}</p>
               <button
                 onClick={() => addToCart({ ...product, quantity: 1})}

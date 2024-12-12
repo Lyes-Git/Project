@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; 
 import './Shop.css';
 import { useCart } from '../Context/CartContext';
 import productData from '../Components/assets/data'; // Adjust path as needed
@@ -16,8 +17,10 @@ const Shop = () => {
           <div className="product-grid">
             {products.map((product) => (
               <div key={product.id} className="product-card">
+              <Link to={`/product/${category}/${product.id}`}>
                 <img src={product.img} alt={product.name} className="product-image" />
                 <h3>{product.name}</h3>
+                </Link>
                 <p>${product.price.toFixed(2)}</p>
                 <button onClick={() => addToCart({ ...product, quantity: 1 })} className="add-to-cart">
                   Add to Cart
