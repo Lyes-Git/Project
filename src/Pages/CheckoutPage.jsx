@@ -11,6 +11,8 @@ const CheckoutPage = () => {
   });
   const [isOrderPlaced, setIsOrderPlaced] = useState(false);
 
+  const apiUrl = import.meta.env.VITE_API_URL;
+  
   const calculateTotal = () =>
     cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -28,7 +30,7 @@ const CheckoutPage = () => {
     }
   
     try {
-      const response = await fetch('http://localhost:3000/api/checkout', {
+      const response = await fetch(apiUrl + 'api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userDetails, cartItems }),

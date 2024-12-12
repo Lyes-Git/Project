@@ -5,10 +5,12 @@ const OrderHistory = ({ userEmail }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const apiUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchOrderHistory = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/order-history?email=${userEmail}`);
+        // const response = await fetch(`http://localhost:3000/api/order-history?email=${userEmail}`);
+        const response = await fetch(apiUrl + `api/order-history?email=${userEmail}`, );
   
         if (!response.ok) {
           const errorData = await response.json();
